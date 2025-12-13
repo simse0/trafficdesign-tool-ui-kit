@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trafficdesign UI Kit - Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Prevent FOUC -->
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+      background: #F9FAFB;
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+  </style>
+  
   <script type="module" src="/src/main.js"></script>
 </head>
 <body class="bg-surface-50" x-data="{ sidebarOpen: true }">
@@ -506,6 +522,13 @@
       </div>
     </template>
   </div>
+  
+  <!-- Show body after load -->
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
 </body>
 </html>
 

@@ -1057,5 +1057,24 @@
   .glass {
     @apply bg-white/80 backdrop-blur-sm;
   }
+
+  /* ----------------------------------------
+     CHART CONTAINERS
+     ---------------------------------------- */
+  .chart-container {
+    @apply w-full h-80 relative;
+  }
+  
+  .chart-container-sm {
+    @apply w-full h-48;
+  }
+  
+  .chart-container-lg {
+    @apply w-full h-96;
+  }
+  
+  .sparkline {
+    @apply w-full h-12;
+  }
 }
 

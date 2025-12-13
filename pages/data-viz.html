@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenvisualisierung - Trafficdesign UI Kit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Prevent FOUC -->
+  <style>
+    body { opacity: 0; transition: opacity 0.3s ease-in; background: #F9FAFB; margin: 0; font-family: 'Inter', system-ui, sans-serif; }
+    body.loaded { opacity: 1; }
+  </style>
+  
   <script type="module" src="/src/main.js"></script>
 </head>
 <body class="bg-surface-50" x-data="{ sidebarOpen: true }">
@@ -195,15 +203,7 @@
                   </select>
                 </div>
                 <div class="card-tool-body">
-                  <!-- Placeholder für Chart -->
-                  <div class="h-64 bg-surface-50 rounded-lg border-2 border-dashed border-surface-200 flex items-center justify-center">
-                    <div class="text-center">
-                      <svg class="w-12 h-12 text-surface-300 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
-                      </svg>
-                      <p class="text-sm text-surface-400">Chart.js / ApexCharts hier einbinden</p>
-                    </div>
-                  </div>
+                  <div id="lineChartViz" style="height: 256px;"></div>
                 </div>
               </div>
               
@@ -213,14 +213,7 @@
                   <h3 class="font-medium">Verkäufe nach Kategorie</h3>
                 </div>
                 <div class="card-tool-body">
-                  <div class="h-64 bg-surface-50 rounded-lg border-2 border-dashed border-surface-200 flex items-center justify-center">
-                    <div class="text-center">
-                      <svg class="w-12 h-12 text-surface-300 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                      </svg>
-                      <p class="text-sm text-surface-400">Balkendiagramm Platzhalter</p>
-                    </div>
-                  </div>
+                  <div id="barChartViz" style="height: 256px;"></div>
                 </div>
               </div>
               
@@ -344,6 +337,68 @@
       </main>
     </div>
   </div>
+
+  <!-- Chart Initialization -->
+  <script type="module">
+    import ApexCharts from 'apexcharts';
+    
+    // Line Chart - Umsatzentwicklung
+    const lineChart = new ApexCharts(document.querySelector("#lineChartViz"), {
+      chart: { type: 'area', height: 256, fontFamily: 'Inter, sans-serif', toolbar: { show: false } },
+      series: [{
+        name: 'Umsatz',
+        data: [28, 29, 33, 36, 32, 32, 33, 35, 38, 42, 45, 48]
+      }],
+      xaxis: { 
+        categories: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        labels: { style: { fontSize: '12px', colors: '#6B7280' } }
+      },
+      yaxis: {
+        labels: { style: { fontSize: '12px', colors: '#6B7280' } }
+      },
+      colors: ['#00B3C7'],
+      stroke: { curve: 'smooth', width: 2 },
+      fill: { type: 'gradient', gradient: { opacityFrom: 0.4, opacityTo: 0.1 } },
+      dataLabels: { enabled: false },
+      grid: { borderColor: '#E5E7EB', strokeDashArray: 4 },
+      tooltip: { theme: 'light', style: { fontSize: '14px' } }
+    });
+    lineChart.render();
+    
+    // Bar Chart - Verkäufe nach Kategorie
+    const barChart = new ApexCharts(document.querySelector("#barChartViz"), {
+      chart: { type: 'bar', height: 256, fontFamily: 'Inter, sans-serif', toolbar: { show: false } },
+      series: [{ data: [400, 430, 448, 470, 540, 580, 690] }],
+      plotOptions: { 
+        bar: { 
+          borderRadius: 4, 
+          horizontal: false, 
+          columnWidth: '50%',
+          distributed: true 
+        } 
+      },
+      xaxis: { 
+        categories: ['Elektronik', 'Mode', 'Haushalt', 'Sport', 'Bücher', 'Spielzeug', 'Garten'],
+        labels: { style: { fontSize: '12px', colors: '#6B7280' } }
+      },
+      yaxis: {
+        labels: { style: { fontSize: '12px', colors: '#6B7280' } }
+      },
+      colors: ['#00B3C7', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6', '#8B5CF6', '#EC4899'],
+      legend: { show: false },
+      dataLabels: { enabled: false },
+      grid: { borderColor: '#E5E7EB', strokeDashArray: 4 },
+      tooltip: { theme: 'light', style: { fontSize: '14px' } }
+    });
+    barChart.render();
+  </script>
+
+  <!-- Show body after load -->
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
 </body>
 </html>
 

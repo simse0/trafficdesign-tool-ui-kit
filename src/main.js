@@ -1,5 +1,6 @@
 import Alpine from 'alpinejs'
 import './styles/globals.css'
+import './charts.js' // ApexCharts Theme
 
 // Alpine.js Global Stores
 Alpine.store('notifications', {

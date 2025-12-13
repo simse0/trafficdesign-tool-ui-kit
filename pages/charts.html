@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts & Graphen - Trafficdesign Tool UI Kit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Prevent FOUC -->
+    <style>
+      body { opacity: 0; transition: opacity 0.3s ease-in; background: #F9FAFB; margin: 0; font-family: 'Inter', system-ui, sans-serif; }
+      body.loaded { opacity: 1; }
+    </style>
+    
+    <script type="module" src="/src/main.js"></script>
+</head>
+<body class="h-full bg-surface-50">
+  
+  <div class="flex h-screen overflow-hidden" x-data="{ sidebarOpen: true }">
+    
+    <!-- Sidebar -->
+    <aside class="w-64 bg-brand-light border-r border-surface-200 flex-shrink-0 overflow-y-auto">
+      <div class="p-6">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-lg font-semibold text-brand-dark">Trafficdesign</h1>
+            <p class="text-xs text-surface-500">Tool UI Kit</p>
+          </div>
+        </div>
+        
+        <nav class="space-y-1">
+          <a href="../index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Dashboard
+          </a>
+          
+          <div class="pt-4 pb-2">
+            <p class="text-xs font-semibold text-surface-500 uppercase tracking-wider px-3">Komponenten</p>
+          </div>
+          
+          <a href="./elements.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+            Elemente
+          </a>
+          
+          <a href="./tables.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Tabellen
+          </a>
+          
+          <a href="./forms.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Formulare
+          </a>
+          
+          <a href="./notifications.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            Benachrichtigungen
+          </a>
+          
+          <a href="./panels.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+            </svg>
+            Panels & Cards
+          </a>
+          
+          <a href="./navigation.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Navigation
+          </a>
+          
+          <a href="./data-viz.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            Statistiken & KPI
+          </a>
+          
+          <a href="./charts.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+            </svg>
+            Charts & Graphen
+          </a>
+          
+          <a href="./loading-states.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Loading States
+          </a>
+          
+          <a href="./user-elements.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            User-Elemente
+          </a>
+          
+          <a href="./advanced-inputs.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+            Erweiterte Inputs
+          </a>
+          
+          <a href="./workflows.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+            Workflows & Stepper
+          </a>
+          
+          <a href="./lists-feeds.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Listen & Feeds
+          </a>
+          
+          <a href="./context-actions.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+            </svg>
+            Context & Bulk Actions
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      
+      <!-- Header -->
+      <header class="bg-white border-b border-surface-200 px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-2xl font-semibold text-brand-dark">Charts & Graphen</h1>
+            <p class="text-sm text-surface-500 mt-1">Datenvisualisierung mit ApexCharts</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button class="btn-secondary btn-sm">
+              <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Daten Exportieren
+            </button>
+            <button class="btn-primary btn-sm">
+              <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Daten Aktualisieren
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Area -->
+      <main class="flex-1 overflow-y-auto p-6">
+        
+        <!-- KPI Cards with Sparklines -->
+        <div class="grid grid-cols-4 gap-4 mb-6">
+          <div class="card-tool">
+            <div class="card-tool-body">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <div class="stat-label">Umsatz</div>
+                  <div class="stat-value">€124.520</div>
+                </div>
+                <div class="stat-trend-up">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                  <span>+12.5%</span>
+                </div>
+              </div>
+              <div id="sparkline1" class="sparkline"></div>
+            </div>
+          </div>
+          
+          <div class="card-tool">
+            <div class="card-tool-body">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <div class="stat-label">Besucher</div>
+                  <div class="stat-value">45.812</div>
+                </div>
+                <div class="stat-trend-up">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                  <span>+8.2%</span>
+                </div>
+              </div>
+              <div id="sparkline2" class="sparkline"></div>
+            </div>
+          </div>
+          
+          <div class="card-tool">
+            <div class="card-tool-body">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <div class="stat-label">Conversion Rate</div>
+                  <div class="stat-value">3.24%</div>
+                </div>
+                <div class="stat-trend-down">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6" />
+                  </svg>
+                  <span>-2.1%</span>
+                </div>
+              </div>
+              <div id="sparkline3" class="sparkline"></div>
+            </div>
+          </div>
+          
+          <div class="card-tool">
+            <div class="card-tool-body">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <div class="stat-label">Neukunden</div>
+                  <div class="stat-value">1.243</div>
+                </div>
+                <div class="stat-trend-up">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                  <span>+15.3%</span>
+                </div>
+              </div>
+              <div id="sparkline4" class="sparkline"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Line & Area Charts -->
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          <!-- Line Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Umsatzentwicklung</h2>
+              <div class="flex gap-2">
+                <button class="btn-ghost btn-xs">7D</button>
+                <button class="btn-ghost btn-xs">30D</button>
+                <button class="btn-secondary btn-xs">90D</button>
+              </div>
+            </div>
+            <div class="card-tool-body">
+              <div id="lineChart" class="chart-container"></div>
+            </div>
+          </div>
+          
+          <!-- Area Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Traffic-Quellen</h2>
+              <span class="badge-neutral">Letzte 30 Tage</span>
+            </div>
+            <div class="card-tool-body">
+              <div id="areaChart" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bar & Column Charts -->
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          <!-- Bar Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Monatsvergleich Umsatz</h2>
+              <button class="btn-secondary btn-xs">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-tool-body">
+              <div id="barChart" class="chart-container"></div>
+            </div>
+          </div>
+          
+          <!-- Column Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Produktkategorien</h2>
+              <button class="btn-secondary btn-xs">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-tool-body">
+              <div id="columnChart" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mixed & Donut Charts -->
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          <!-- Mixed Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Umsatz & Gewinn</h2>
+              <div class="flex gap-2">
+                <span class="badge-primary">Umsatz</span>
+                <span class="badge-success">Gewinn</span>
+              </div>
+            </div>
+            <div class="card-tool-body">
+              <div id="mixedChart" class="chart-container"></div>
+            </div>
+          </div>
+          
+          <!-- Donut Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Marktanteil nach Region</h2>
+              <button class="btn-secondary btn-xs">Details</button>
+            </div>
+            <div class="card-tool-body">
+              <div id="donutChart" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radar & Heatmap -->
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Radar Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Performance-Metriken</h2>
+              <span class="badge-info">Q4 2024</span>
+            </div>
+            <div class="card-tool-body">
+              <div id="radarChart" class="chart-container"></div>
+            </div>
+          </div>
+          
+          <!-- Radial Bar Chart -->
+          <div class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Zielerreichung</h2>
+              <button class="btn-secondary btn-xs">Bearbeiten</button>
+            </div>
+            <div class="card-tool-body">
+              <div id="radialChart" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Chart Initialization Script -->
+  <script type="module">
+    import ApexCharts from 'apexcharts';
+    
+    // Sparklines
+    const sparklineOptions = {
+      chart: { type: 'area', height: 48, sparkline: { enabled: true } },
+      stroke: { curve: 'smooth', width: 2 },
+      fill: { opacity: 0.3, type: 'gradient' },
+      tooltip: { fixed: { enabled: false }, x: { show: false }, y: { title: { formatter: () => '' } } }
+    };
+    
+    new ApexCharts(document.querySelector("#sparkline1"), {
+      ...sparklineOptions,
+      series: [{ data: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14] }],
+      colors: ['#00B3C7']
+    }).render();
+    
+    new ApexCharts(document.querySelector("#sparkline2"), {
+      ...sparklineOptions,
+      series: [{ data: [47, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62] }],
+      colors: ['#22C55E']
+    }).render();
+    
+    new ApexCharts(document.querySelector("#sparkline3"), {
+      ...sparklineOptions,
+      series: [{ data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54] }],
+      colors: ['#EF4444']
+    }).render();
+    
+    new ApexCharts(document.querySelector("#sparkline4"), {
+      ...sparklineOptions,
+      series: [{ data: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 94] }],
+      colors: ['#F59E0B']
+    }).render();
+    
+    // Line Chart
+    new ApexCharts(document.querySelector("#lineChart"), {
+      chart: { type: 'line', height: 320, fontFamily: 'Inter, sans-serif', toolbar: { show: true } },
+      series: [{
+        name: 'Umsatz',
+        data: [28, 29, 33, 36, 32, 32, 33, 35, 38, 42, 45, 48]
+      }, {
+        name: 'Vorjahr',
+        data: [12, 11, 14, 18, 17, 13, 13, 14, 16, 18, 20, 22]
+      }],
+      xaxis: { categories: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'] },
+      colors: ['#00B3C7', '#E5E7EB'],
+      stroke: { curve: 'smooth', width: [3, 2] },
+      legend: { position: 'top' },
+      dataLabels: { enabled: false }
+    }).render();
+    
+    // Area Chart
+    new ApexCharts(document.querySelector("#areaChart"), {
+      chart: { type: 'area', height: 320, fontFamily: 'Inter, sans-serif', stacked: true, toolbar: { show: true } },
+      series: [{
+        name: 'Organisch',
+        data: [31, 40, 28, 51, 42, 109, 100, 120, 95, 103, 115, 132]
+      }, {
+        name: 'Bezahlt',
+        data: [11, 32, 45, 32, 34, 52, 41, 65, 52, 48, 55, 68]
+      }, {
+        name: 'Direkt',
+        data: [15, 11, 18, 19, 23, 20, 22, 28, 25, 29, 32, 38]
+      }],
+      xaxis: { categories: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'] },
+      colors: ['#00B3C7', '#22C55E', '#F59E0B'],
+      fill: { type: 'gradient', gradient: { opacityFrom: 0.6, opacityTo: 0.1 } },
+      legend: { position: 'top' },
+      dataLabels: { enabled: false }
+    }).render();
+    
+    // Bar Chart
+    new ApexCharts(document.querySelector("#barChart"), {
+      chart: { type: 'bar', height: 320, fontFamily: 'Inter, sans-serif', toolbar: { show: true } },
+      series: [{
+        name: '2024',
+        data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43, 51]
+      }, {
+        name: '2023',
+        data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 42]
+      }],
+      plotOptions: { bar: { horizontal: false, columnWidth: '55%', borderRadius: 4 } },
+      xaxis: { categories: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'] },
+      colors: ['#00B3C7', '#E5E7EB'],
+      legend: { position: 'top' },
+      dataLabels: { enabled: false }
+    }).render();
+    
+    // Column Chart
+    new ApexCharts(document.querySelector("#columnChart"), {
+      chart: { type: 'bar', height: 320, fontFamily: 'Inter, sans-serif', toolbar: { show: true } },
+      series: [{ data: [400, 430, 448, 470, 540, 580, 690] }],
+      plotOptions: { bar: { borderRadius: 4, horizontal: false, columnWidth: '45%', distributed: true } },
+      xaxis: { categories: ['Elektronik', 'Mode', 'Haushalt', 'Sport', 'Bücher', 'Spielzeug', 'Garten'] },
+      colors: ['#00B3C7', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6', '#8B5CF6', '#EC4899'],
+      legend: { show: false },
+      dataLabels: { enabled: false }
+    }).render();
+    
+    // Mixed Chart
+    new ApexCharts(document.querySelector("#mixedChart"), {
+      chart: { type: 'line', height: 320, fontFamily: 'Inter, sans-serif', toolbar: { show: true } },
+      series: [{
+        name: 'Umsatz',
+        type: 'column',
+        data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+      }, {
+        name: 'Gewinn',
+        type: 'line',
+        data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
+      }],
+      xaxis: { categories: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'] },
+      colors: ['#00B3C7', '#22C55E'],
+      stroke: { width: [0, 3], curve: 'smooth' },
+      plotOptions: { bar: { columnWidth: '50%', borderRadius: 4 } },
+      legend: { position: 'top' },
+      dataLabels: { enabled: false }
+    }).render();
+    
+    // Donut Chart
+    new ApexCharts(document.querySelector("#donutChart"), {
+      chart: { type: 'donut', height: 320, fontFamily: 'Inter, sans-serif' },
+      series: [44, 55, 13, 33, 18],
+      labels: ['DACH', 'Europa', 'Asien', 'Amerika', 'Rest'],
+      colors: ['#00B3C7', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6'],
+      legend: { position: 'bottom' },
+      dataLabels: { enabled: true },
+      plotOptions: { pie: { donut: { size: '65%', labels: { show: true, value: { fontSize: '24px', fontWeight: 600 }, total: { show: true, label: 'Gesamt', fontSize: '14px' } } } } }
+    }).render();
+    
+    // Radar Chart
+    new ApexCharts(document.querySelector("#radarChart"), {
+      chart: { type: 'radar', height: 320, fontFamily: 'Inter, sans-serif', toolbar: { show: false } },
+      series: [{
+        name: 'Aktuell',
+        data: [80, 50, 30, 40, 100, 20]
+      }, {
+        name: 'Ziel',
+        data: [20, 30, 40, 80, 20, 80]
+      }],
+      labels: ['Umsatz', 'Kunden', 'Qualität', 'Service', 'Innovation', 'Effizienz'],
+      colors: ['#00B3C7', '#22C55E'],
+      plotOptions: { radar: { polygons: { strokeColors: '#E5E7EB', fill: { colors: ['#F9FAFB', '#FFFFFF'] } } } },
+      legend: { position: 'top' }
+    }).render();
+    
+    // Radial Bar Chart
+    new ApexCharts(document.querySelector("#radialChart"), {
+      chart: { type: 'radialBar', height: 320, fontFamily: 'Inter, sans-serif' },
+      series: [76, 67, 61, 90],
+      labels: ['Umsatzziel', 'Kundenziel', 'Produktziel', 'Service-Level'],
+      colors: ['#00B3C7', '#22C55E', '#F59E0B', '#3B82F6'],
+      plotOptions: { radialBar: { offsetY: 0, startAngle: 0, endAngle: 270, hollow: { size: '30%' }, dataLabels: { name: { fontSize: '14px' }, value: { fontSize: '20px', fontWeight: 600 } } } },
+      legend: { show: true, position: 'left', offsetX: 0, offsetY: 0 }
+    }).render();
+  </script>
+
+  <!-- Show body after load -->
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>
+

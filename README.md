@@ -57,35 +57,64 @@ cd /pfad/zu/deinem/laravel-projekt
 curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
 ```
 
-#### Schritt 2: Design System referenzieren
+#### Schritt 2: Design System Dokumentation bereitstellen
 
-Öffne `.cursorrules` und füge ganz oben hinzu:
+**Option A: DESIGN-SYSTEM.md lokal kopieren (empfohlen):**
+
+```bash
+# DESIGN-SYSTEM.md ins Projekt-Root kopieren
+curl -o DESIGN-SYSTEM.md https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
+```
+
+Dann in `.cursorrules` hinzufügen:
 
 ```plaintext
-# Trafficdesign UI Kit - Remote Referenz
+# Trafficdesign Tool UI Kit
+**WICHTIG:** Lies DESIGN-SYSTEM.md für alle verfügbaren Komponenten, CSS-Klassen und Patterns!
+
+Dokumentation: siehe DESIGN-SYSTEM.md im Projekt-Root
+Repository: https://github.com/simse0/trafficdesign-tool-ui-kit
+```
+
+**Option B: Remote-Referenz (für schnellen Start):**
+
+```plaintext
+# Trafficdesign Tool UI Kit - Remote Referenz
 Dokumentation: https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
 CSS-Dateien: https://github.com/simse0/trafficdesign-tool-ui-kit/tree/main/src/styles
 Demo: https://simse0.github.io/trafficdesign-tool-ui-kit
 
-// ... restlicher Inhalt ...
+// ... restlicher Inhalt aus .cursorrules ...
 ```
 
 #### Schritt 3: AI-Befehle verwenden
 
-Jetzt kannst du in Cursor direkt mit dem Design System arbeiten:
+Jetzt kannst du in Cursor direkt mit dem Design System arbeiten. Cursor liest automatisch die `DESIGN-SYSTEM.md` und kennt alle 50+ Komponenten!
+
+**Beispiel-Befehle:**
 
 ```
-💬 "Erstelle ein User-Dashboard mit dem Trafficdesign UI Kit"
+💬 "Erstelle ein User-Dashboard mit dem Trafficdesign Tool UI Kit"
 💬 "Füge eine sortierbare Tabelle im Trafficdesign-Style hinzu"
 💬 "Baue ein Modal zum Bearbeiten von Benutzern"
 💬 "Implementiere eine KPI-Card mit Trend-Indikator"
+💬 "Welche Button-Varianten gibt es im Design System?"
+💬 "Zeige mir alle verfügbaren Badge-Klassen"
 ```
 
-Cursor verwendet automatisch:
-- ✅ `.btn-primary`, `.card-tool`, `.input-field` etc.
-- ✅ `brand-primary` statt `blue-500`
-- ✅ Alpine.js für Interaktivität
-- ✅ 14px Basis-Schriftgröße
+**Was Cursor automatisch aus DESIGN-SYSTEM.md lernt:**
+- ✅ Alle 50+ CSS-Klassen (`.btn-primary`, `.card-tool`, `.input-field`, etc.)
+- ✅ Brand Colors (`brand-primary` #00B3C7, `brand-dark` #333333)
+- ✅ Semantic Colors (`ui-success`, `ui-warning`, `ui-error`, `ui-info`)
+- ✅ Typografie-System (14px Basis, 24px H1)
+- ✅ Alpine.js Patterns (Modals, Dropdowns, Tabs)
+- ✅ Grid-Layouts und Spacing-Rules
+- ✅ Blade-Komponenten-Vorlagen
+
+**Cursor nutzt NIEMALS:**
+- ❌ Tailwind Default Colors (`blue-500`, `green-600`)
+- ❌ Inline-Styles (`style="..."`)
+- ❌ jQuery (nur Alpine.js)
 
 #### Schritt 4: Global für alle Projekte aktivieren (optional)
 
@@ -146,12 +175,14 @@ git submodule update --remote vendor/trafficdesign-tool-ui-kit
 #### Option C: Einzelne Dateien direkt von GitHub laden
 
 ```bash
-# Nur die 3 wichtigsten Dateien herunterladen
+# Die 4 wichtigsten Dateien herunterladen
 curl -o tailwind.config.js https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/tailwind.config.js
 
 curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/styles/globals.css
 
 curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
+
+curl -o DESIGN-SYSTEM.md https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
 
 # Alpine.js Store manuell in resources/js/app.js einfügen
 curl https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/main.js
@@ -159,7 +190,7 @@ curl https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src
 
 ---
 
-### 3. Schnellstart mit Cursor Composer
+### 3. Schnellstart mit Cursor Composer (All-in-One)
 
 ```bash
 # Neues Laravel-Projekt mit UI Kit erstellen
@@ -170,15 +201,23 @@ cd mein-projekt
 composer require laravel/breeze --dev
 php artisan breeze:install blade
 
-# UI Kit einrichten
+# UI Kit Dateien laden
 curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
+curl -o DESIGN-SYSTEM.md https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
 curl -o tailwind.config.js https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/tailwind.config.js
 curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/styles/globals.css
 
 # In Cursor Chat eingeben:
-# "Richte das Trafficdesign UI Kit ein. Füge Alpine.js Store aus 
-#  https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/main.js
-#  zu resources/js/app.js hinzu und erstelle Layouts (Sidebar, Topbar, Footer)."
+# "Lies die DESIGN-SYSTEM.md und richte das Trafficdesign Tool UI Kit ein.
+#  Füge Alpine.js Store aus https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/main.js
+#  zu resources/js/app.js hinzu und erstelle Layouts (Sidebar, Topbar, Footer) nach den Vorgaben."
+```
+
+**Dann kannst du direkt loslegen:**
+
+```
+💬 "Erstelle ein Dashboard mit KPI-Cards und einer Tabelle basierend auf DESIGN-SYSTEM.md"
+💬 "Baue ein User-Management mit allen Komponenten aus dem Design System"
 ```
 
 ---
@@ -243,9 +282,11 @@ npm run dev
 | **Cursor Global Rules** | ✅ Für alle Projekte<br>✅ Kein Setup pro Projekt | ❌ Weniger flexibel | Standardisierte Workflows |
 
 **Empfehlung:**
-- 🚀 **Schneller Start:** Option C (Curl von GitHub) + Cursor Rules
+- 🚀 **Schneller Start:** Option C (Curl von GitHub) + Cursor Rules + DESIGN-SYSTEM.md
 - 🏢 **Produktion:** Option A (Manuelles Kopieren) mit Version-Pinning
 - 👥 **Team-Entwicklung:** Option B (Git-Submodule)
+
+**💡 Wichtig:** Lade immer die `DESIGN-SYSTEM.md` mit herunter! Sie enthält alle 50+ Komponenten, die Cursor dann automatisch nutzen kann.
 
 ---
 
@@ -326,7 +367,7 @@ npm run dev
 
 ## 📸 Demo-Seiten
 
-Das Projekt enthält **14 Demo-Seiten** mit allen Komponenten:
+Das Projekt enthält **15 Demo-Seiten** mit allen Komponenten:
 
 | Seite | Inhalt | URL |
 |-------|--------|-----|
@@ -337,7 +378,8 @@ Das Projekt enthält **14 Demo-Seiten** mit allen Komponenten:
 | **Benachrichtigungen** | Alerts, Toasts, Badges, Progress | `/pages/notifications.html` |
 | **Panels** | Grid-Layouts, Cards, Tabs | `/pages/panels.html` |
 | **Navigation** | Header, Sidebar, Footer, Breadcrumbs | `/pages/navigation.html` |
-| **Daten-Viz** | KPI Cards, Stats, Charts | `/pages/data-viz.html` |
+| **Daten-Viz** | KPI Cards, Stats | `/pages/data-viz.html` |
+| **Charts & Graphen** | 🆕 Line, Bar, Area, Donut, Mixed, Radar (ApexCharts) | `/pages/charts.html` |
 | **Loading** | Skeleton Loaders, Spinners | `/pages/loading-states.html` |
 | **User-Elemente** | Avatars, Profile Cards | `/pages/user-elements.html` |
 | **Erweiterte Inputs** | File Upload, Date Picker | `/pages/advanced-inputs.html` |
@@ -422,6 +464,7 @@ notify('Bitte beachten Sie...', 'warning', 3000);
 |-------------|---------|------------|
 | **Tailwind CSS** | 3.4+ | Styling-Framework |
 | **Alpine.js** | 3.14+ | Interaktivität |
+| **ApexCharts** | 3.45+ | Charts & Datenvisualisierung |
 | **Vite** | 5.2+ | Build-Tool |
 | **PostCSS** | 8.4+ | CSS-Processing |
 | **Inter Font** | - | UI-Schriftart |
@@ -437,15 +480,17 @@ notify('Bitte beachten Sie...', 'warning', 3000);
 ## 📁 Projekt-Struktur
 
 ```
-trafficdesign-ui-kit/
+trafficdesign-tool-ui-kit/
 ├── src/
 │   ├── main.js              # Alpine.js Setup + Stores
+│   ├── charts.js            # ApexCharts Theme
 │   └── styles/
 │       └── globals.css      # 50+ CSS-Komponenten
-├── pages/                   # 13 Demo-Seiten
+├── pages/                   # 14 Demo-Seiten
 │   ├── tables.html
 │   ├── forms.html
 │   ├── elements.html
+│   ├── charts.html          # 🆕 Charts & Graphen
 │   └── ...
 ├── partials/
 │   └── sidebar.html         # Wiederverwendbare Partials
@@ -587,6 +632,7 @@ Contributions sind willkommen! Bitte:
 
 - **Tailwind CSS:** [https://tailwindcss.com](https://tailwindcss.com)
 - **Alpine.js:** [https://alpinejs.dev](https://alpinejs.dev)
+- **ApexCharts:** [https://apexcharts.com](https://apexcharts.com)
 - **Inter Font:** [Google Fonts](https://fonts.google.com/specimen/Inter)
 - **Icons:** [Heroicons](https://heroicons.com)
 

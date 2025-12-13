@@ -15,6 +15,7 @@ export default defineConfig({
         navigation: resolve(__dirname, 'pages/navigation.html'),
         elements: resolve(__dirname, 'pages/elements.html'),
         dataViz: resolve(__dirname, 'pages/data-viz.html'),
+        charts: resolve(__dirname, 'pages/charts.html'),
         loadingStates: resolve(__dirname, 'pages/loading-states.html'),
         userElements: resolve(__dirname, 'pages/user-elements.html'),
         advancedInputs: resolve(__dirname, 'pages/advanced-inputs.html'),
