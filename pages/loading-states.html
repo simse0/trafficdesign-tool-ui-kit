@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ladezustände - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/loading-states.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            Ladezustände
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Ladezustände</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Ladezustände</h1>
+          <p class="text-surface-500 mt-1">Skeleton Loaders, Spinners und Empty States.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Spinners -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Loading Spinners</h2>
+            </div>
+            <div class="card-tool-body space-y-6">
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Größen</h3>
+                <div class="flex items-center gap-6">
+                  <div class="text-center">
+                    <span class="spinner-sm text-brand-primary"></span>
+                    <p class="text-xs text-surface-500 mt-2">Small</p>
+                  </div>
+                  <div class="text-center">
+                    <span class="spinner-md text-brand-primary"></span>
+                    <p class="text-xs text-surface-500 mt-2">Medium</p>
+                  </div>
+                  <div class="text-center">
+                    <span class="spinner-lg text-brand-primary"></span>
+                    <p class="text-xs text-surface-500 mt-2">Large</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Farben</h3>
+                <div class="flex items-center gap-4">
+                  <span class="spinner-md text-brand-primary"></span>
+                  <span class="spinner-md text-ui-success"></span>
+                  <span class="spinner-md text-ui-warning"></span>
+                  <span class="spinner-md text-ui-error"></span>
+                  <span class="spinner-md text-surface-400"></span>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">In Buttons</h3>
+                <div class="flex gap-2">
+                  <button class="btn-primary" disabled>
+                    <span class="spinner-sm"></span>
+                    Speichern...
+                  </button>
+                  <button class="btn-secondary" disabled>
+                    <span class="spinner-sm text-brand-dark"></span>
+                    Laden...
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Skeleton Card -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Skeleton - Card</h2>
+            </div>
+            <div class="card-tool-body">
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="skeleton-avatar w-10 h-10"></div>
+                  <div class="flex-1 space-y-2">
+                    <div class="skeleton-text w-1/3"></div>
+                    <div class="skeleton-text w-1/2"></div>
+                  </div>
+                </div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text w-2/3"></div>
+                <div class="flex gap-2 mt-4">
+                  <div class="skeleton-button"></div>
+                  <div class="skeleton-button w-20"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Skeleton Table -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Skeleton - Tabelle</h2>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="table-tool">
+                <thead>
+                  <tr>
+                    <th><div class="skeleton h-3 w-16"></div></th>
+                    <th><div class="skeleton h-3 w-24"></div></th>
+                    <th><div class="skeleton h-3 w-20"></div></th>
+                    <th><div class="skeleton h-3 w-16"></div></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="skeleton h-4 w-20"></div></td>
+                    <td><div class="skeleton h-4 w-32"></div></td>
+                    <td><div class="skeleton h-4 w-24"></div></td>
+                    <td><div class="skeleton h-4 w-16"></div></td>
+                  </tr>
+                  <tr>
+                    <td><div class="skeleton h-4 w-24"></div></td>
+                    <td><div class="skeleton h-4 w-28"></div></td>
+                    <td><div class="skeleton h-4 w-20"></div></td>
+                    <td><div class="skeleton h-4 w-12"></div></td>
+                  </tr>
+                  <tr>
+                    <td><div class="skeleton h-4 w-16"></div></td>
+                    <td><div class="skeleton h-4 w-36"></div></td>
+                    <td><div class="skeleton h-4 w-24"></div></td>
+                    <td><div class="skeleton h-4 w-16"></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          
+          <!-- Skeleton List -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Skeleton - Liste</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="skeleton-avatar w-8 h-8"></div>
+                <div class="flex-1 space-y-2">
+                  <div class="skeleton-text w-1/2"></div>
+                  <div class="skeleton-text w-1/4"></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="skeleton-avatar w-8 h-8"></div>
+                <div class="flex-1 space-y-2">
+                  <div class="skeleton-text w-2/3"></div>
+                  <div class="skeleton-text w-1/3"></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="skeleton-avatar w-8 h-8"></div>
+                <div class="flex-1 space-y-2">
+                  <div class="skeleton-text w-1/2"></div>
+                  <div class="skeleton-text w-1/4"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Empty States -->
+          <section class="card-tool lg:col-span-2">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Empty States</h2>
+            </div>
+            <div class="card-tool-body">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- No Data -->
+                <div class="empty-state border border-surface-200 rounded-lg">
+                  <svg class="empty-state-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+                  </svg>
+                  <h3 class="empty-state-title">Keine Daten</h3>
+                  <p class="empty-state-description">Es wurden noch keine Einträge erstellt.</p>
+                  <button class="btn-primary btn-sm mt-4">Ersten Eintrag erstellen</button>
+                </div>
+                
+                <!-- No Search Results -->
+                <div class="empty-state border border-surface-200 rounded-lg">
+                  <svg class="empty-state-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                  <h3 class="empty-state-title">Keine Ergebnisse</h3>
+                  <p class="empty-state-description">Für Ihre Suche wurden keine passenden Ergebnisse gefunden.</p>
+                  <button class="btn-secondary btn-sm mt-4">Filter zurücksetzen</button>
+                </div>
+                
+                <!-- Error State -->
+                <div class="empty-state border border-surface-200 rounded-lg">
+                  <svg class="empty-state-icon text-ui-error" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                  </svg>
+                  <h3 class="empty-state-title">Fehler aufgetreten</h3>
+                  <p class="empty-state-description">Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.</p>
+                  <button class="btn-primary btn-sm mt-4">Erneut versuchen</button>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+          
+          <!-- Loading Overlay -->
+          <section class="card-tool lg:col-span-2">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Loading Overlay</h2>
+            </div>
+            <div class="card-tool-body">
+              <div class="relative h-48 bg-surface-50 rounded-lg overflow-hidden">
+                <!-- Content (blurred) -->
+                <div class="p-4">
+                  <h3 class="font-medium">Beispiel-Inhalt</h3>
+                  <p class="text-sm text-surface-600 mt-2">Dieser Inhalt wird durch das Loading-Overlay überdeckt.</p>
+                </div>
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center">
+                  <div class="text-center">
+                    <span class="spinner-lg text-brand-primary"></span>
+                    <p class="text-sm text-surface-600 mt-2">Daten werden geladen...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

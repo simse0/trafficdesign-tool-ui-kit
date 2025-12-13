@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elemente - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true, modalOpen: false }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/elements.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+            </svg>
+            Elemente
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Elemente</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Elemente</h1>
+          <p class="text-surface-500 mt-1">Buttons, Tooltips, Modals und Dropdowns.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Buttons -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Buttons</h2>
+            </div>
+            <div class="card-tool-body space-y-6">
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Varianten</h3>
+                <div class="flex flex-wrap gap-2">
+                  <button class="btn-primary">Primary</button>
+                  <button class="btn-secondary">Secondary</button>
+                  <button class="btn-ghost">Ghost</button>
+                  <button class="btn-danger">Danger</button>
+                  <button class="btn-success">Success</button>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Größen</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button class="btn-primary btn-xs">Extra Small</button>
+                  <button class="btn-primary btn-sm">Small</button>
+                  <button class="btn-primary">Default</button>
+                  <button class="btn-primary btn-lg">Large</button>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Mit Icons</h3>
+                <div class="flex flex-wrap gap-2">
+                  <button class="btn-primary">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                    </svg>
+                    Hinzufügen
+                  </button>
+                  <button class="btn-secondary">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                    </svg>
+                    Upload
+                  </button>
+                  <button class="btn-danger">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                    </svg>
+                    Löschen
+                  </button>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Icon Buttons</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button class="btn-icon">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                    </svg>
+                  </button>
+                  <button class="btn-icon-primary">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                  </button>
+                  <button class="btn-icon text-ui-error hover:bg-ui-error-light">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Zustände</h3>
+                <div class="flex flex-wrap gap-2">
+                  <button class="btn-primary" disabled>Deaktiviert</button>
+                  <button class="btn-primary flex items-center gap-2">
+                    <span class="spinner-sm text-white"></span>
+                    Laden...
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Dropdowns -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Dropdowns</h2>
+            </div>
+            <div class="card-tool-body space-y-6">
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Standard Dropdown</h3>
+                <div class="dropdown" x-data="{ open: false }">
+                  <button @click="open = !open" class="btn-secondary">
+                    Optionen
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+                  <div x-show="open" @click.away="open = false" x-transition class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                      </svg>
+                      Anzeigen
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                      </svg>
+                      Bearbeiten
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      Duplizieren
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item-danger">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                      </svg>
+                      Löschen
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Dropdown mit Gruppen</h3>
+                <div class="dropdown" x-data="{ open: false }">
+                  <button @click="open = !open" class="btn-secondary">
+                    Aktionen
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+                  <div x-show="open" @click.away="open = false" x-transition class="dropdown-menu">
+                    <div class="dropdown-header">Datei</div>
+                    <a href="#" class="dropdown-item">Neu</a>
+                    <a href="#" class="dropdown-item">Öffnen</a>
+                    <a href="#" class="dropdown-item">Speichern</a>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Bearbeiten</div>
+                    <a href="#" class="dropdown-item">Rückgängig</a>
+                    <a href="#" class="dropdown-item">Wiederholen</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Tooltips -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Tooltips</h2>
+            </div>
+            <div class="card-tool-body">
+              <p class="text-sm text-surface-500 mb-4">Hover über die Buttons für Tooltips.</p>
+              
+              <div class="flex flex-wrap gap-4">
+                
+                <!-- Tooltip Top -->
+                <div class="relative" x-data="{ show: false }">
+                  <button 
+                    @mouseenter="show = true" 
+                    @mouseleave="show = false"
+                    class="btn-secondary"
+                  >
+                    Oben
+                  </button>
+                  <div 
+                    x-show="show" 
+                    x-transition
+                    class="tooltip -top-10 left-1/2 -translate-x-1/2"
+                  >
+                    Tooltip oben
+                    <div class="tooltip-arrow -bottom-1 left-1/2 -translate-x-1/2"></div>
+                  </div>
+                </div>
+                
+                <!-- Tooltip Bottom -->
+                <div class="relative" x-data="{ show: false }">
+                  <button 
+                    @mouseenter="show = true" 
+                    @mouseleave="show = false"
+                    class="btn-secondary"
+                  >
+                    Unten
+                  </button>
+                  <div 
+                    x-show="show" 
+                    x-transition
+                    class="tooltip -bottom-10 left-1/2 -translate-x-1/2"
+                  >
+                    Tooltip unten
+                    <div class="tooltip-arrow -top-1 left-1/2 -translate-x-1/2"></div>
+                  </div>
+                </div>
+                
+                <!-- Tooltip Right -->
+                <div class="relative" x-data="{ show: false }">
+                  <button 
+                    @mouseenter="show = true" 
+                    @mouseleave="show = false"
+                    class="btn-secondary"
+                  >
+                    Rechts
+                  </button>
+                  <div 
+                    x-show="show" 
+                    x-transition
+                    class="tooltip top-1/2 -translate-y-1/2 left-full ml-2"
+                  >
+                    Tooltip rechts
+                    <div class="tooltip-arrow top-1/2 -translate-y-1/2 -left-1"></div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+          
+          <!-- Modal -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Modal / Dialog</h2>
+            </div>
+            <div class="card-tool-body">
+              <p class="text-sm text-surface-500 mb-4">Klicke auf den Button um das Modal zu öffnen.</p>
+              
+              <button @click="modalOpen = true" class="btn-primary">
+                Modal öffnen
+              </button>
+            </div>
+          </section>
+          
+          <!-- Button Groups -->
+          <section class="card-tool lg:col-span-2">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Button-Gruppen</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Inline-Gruppe</h3>
+                <div class="inline-flex rounded-md shadow-sm">
+                  <button class="btn-secondary rounded-r-none border-r-0">Links</button>
+                  <button class="btn-secondary rounded-none border-r-0">Mitte</button>
+                  <button class="btn-secondary rounded-l-none">Rechts</button>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Toggle-Gruppe</h3>
+                <div class="inline-flex rounded-md shadow-sm" x-data="{ selected: 'list' }">
+                  <button 
+                    @click="selected = 'list'"
+                    :class="selected === 'list' ? 'btn-primary' : 'btn-secondary'"
+                    class="rounded-r-none border-r-0"
+                  >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                    </svg>
+                  </button>
+                  <button 
+                    @click="selected = 'grid'"
+                    :class="selected === 'grid' ? 'btn-primary' : 'btn-secondary'"
+                    class="rounded-l-none"
+                  >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <template x-teleport="body">
+    <div x-show="modalOpen" class="relative z-50">
+      <!-- Backdrop -->
+      <div 
+        x-show="modalOpen"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="modal-backdrop"
+        @click="modalOpen = false"
+      ></div>
+      
+      <!-- Modal -->
+      <div 
+        x-show="modalOpen"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90"
+        class="modal"
+        style="transform: translate(-50%, -50%);"
+        @keydown.escape.window="modalOpen = false"
+      >
+        <div class="modal-header">
+          <h3 class="modal-title">Modal-Titel</h3>
+          <button @click="modalOpen = false" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="text-sm text-surface-600">
+            Dies ist der Inhalt des Modals. Hier können beliebige Inhalte platziert werden, 
+            wie Formulare, Bestätigungsdialoge oder Informationen.
+          </p>
+          <div class="mt-4">
+            <label class="label">Beispiel-Input</label>
+            <input type="text" class="input-field" placeholder="Eingabe...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button @click="modalOpen = false" class="btn-secondary">Abbrechen</button>
+          <button @click="modalOpen = false; notify('Aktion erfolgreich!', 'success')" class="btn-primary">Bestätigen</button>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <!-- Toast Container -->
+  <div class="fixed top-4 right-4 z-50 space-y-2" x-data>
+    <template x-for="notification in $store.notifications.items" :key="notification.id">
+      <div :class="{
+        'toast-success': notification.type === 'success',
+        'toast-error': notification.type === 'error',
+        'toast-warning': notification.type === 'warning',
+        'toast-info': notification.type === 'info'
+      }">
+        <span x-text="notification.message"></span>
+        <button @click="$store.notifications.remove(notification.id)" class="ml-2 text-surface-400 hover:text-surface-600">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </template>
+  </div>
+</body>
+</html>
+

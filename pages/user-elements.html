@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User-Elemente - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/user-elements.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            User-Elemente
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">User-Elemente</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">User-Elemente</h1>
+          <p class="text-surface-500 mt-1">Avatars, Profile Cards und Status-Indikatoren.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Avatars -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Avatars</h2>
+            </div>
+            <div class="card-tool-body space-y-6">
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Größen</h3>
+                <div class="flex items-center gap-4">
+                  <div class="avatar-xs"><span>XS</span></div>
+                  <div class="avatar-sm"><span>SM</span></div>
+                  <div class="avatar-md"><span>MD</span></div>
+                  <div class="avatar-lg"><span>LG</span></div>
+                  <div class="avatar-xl"><span>XL</span></div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Mit Bild</h3>
+                <div class="flex items-center gap-4">
+                  <div class="avatar-sm">
+                    <img src="https://i.pravatar.cc/100?img=1" alt="Avatar">
+                  </div>
+                  <div class="avatar-md">
+                    <img src="https://i.pravatar.cc/100?img=2" alt="Avatar">
+                  </div>
+                  <div class="avatar-lg">
+                    <img src="https://i.pravatar.cc/100?img=3" alt="Avatar">
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Mit Status</h3>
+                <div class="flex items-center gap-4">
+                  <div class="avatar-md">
+                    <span>MK</span>
+                    <span class="avatar-status-online"></span>
+                  </div>
+                  <div class="avatar-md">
+                    <span>AK</span>
+                    <span class="avatar-status-away"></span>
+                  </div>
+                  <div class="avatar-md">
+                    <span>TM</span>
+                    <span class="avatar-status-busy"></span>
+                  </div>
+                  <div class="avatar-md">
+                    <span>SB</span>
+                    <span class="avatar-status-offline"></span>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Avatar-Gruppe</h3>
+                <div class="flex -space-x-2">
+                  <div class="avatar-sm ring-2 ring-white">
+                    <img src="https://i.pravatar.cc/100?img=4" alt="Avatar">
+                  </div>
+                  <div class="avatar-sm ring-2 ring-white">
+                    <img src="https://i.pravatar.cc/100?img=5" alt="Avatar">
+                  </div>
+                  <div class="avatar-sm ring-2 ring-white">
+                    <img src="https://i.pravatar.cc/100?img=6" alt="Avatar">
+                  </div>
+                  <div class="avatar-sm ring-2 ring-white bg-surface-200 text-surface-600">
+                    <span>+5</span>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Status Indicators -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Status-Indikatoren</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-50">
+                <div class="avatar-md">
+                  <span>ON</span>
+                  <span class="avatar-status-online"></span>
+                </div>
+                <div class="flex-1">
+                  <div class="font-medium">Online</div>
+                  <div class="text-sm text-surface-500">Verfügbar für Nachrichten</div>
+                </div>
+                <span class="w-2 h-2 bg-ui-success rounded-full"></span>
+              </div>
+              
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-50">
+                <div class="avatar-md">
+                  <span>AW</span>
+                  <span class="avatar-status-away"></span>
+                </div>
+                <div class="flex-1">
+                  <div class="font-medium">Abwesend</div>
+                  <div class="text-sm text-surface-500">Antwortet möglicherweise verzögert</div>
+                </div>
+                <span class="w-2 h-2 bg-ui-warning rounded-full"></span>
+              </div>
+              
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-50">
+                <div class="avatar-md">
+                  <span>BS</span>
+                  <span class="avatar-status-busy"></span>
+                </div>
+                <div class="flex-1">
+                  <div class="font-medium">Beschäftigt</div>
+                  <div class="text-sm text-surface-500">Bitte nicht stören</div>
+                </div>
+                <span class="w-2 h-2 bg-ui-error rounded-full"></span>
+              </div>
+              
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-50">
+                <div class="avatar-md">
+                  <span>OF</span>
+                  <span class="avatar-status-offline"></span>
+                </div>
+                <div class="flex-1">
+                  <div class="font-medium">Offline</div>
+                  <div class="text-sm text-surface-500">Zuletzt online vor 2 Stunden</div>
+                </div>
+                <span class="w-2 h-2 bg-surface-400 rounded-full"></span>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- User Cards -->
+          <section class="card-tool lg:col-span-2">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">User Cards</h2>
+            </div>
+            <div class="card-tool-body">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                <!-- Compact User Card -->
+                <div class="p-4 bg-surface-50 rounded-lg">
+                  <div class="flex items-center gap-3">
+                    <div class="avatar-md">
+                      <img src="https://i.pravatar.cc/100?img=10" alt="Avatar">
+                      <span class="avatar-status-online"></span>
+                    </div>
+                    <div>
+                      <div class="font-medium">Anna Schmidt</div>
+                      <div class="text-sm text-surface-500">Product Designer</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Medium User Card -->
+                <div class="p-4 bg-surface-50 rounded-lg">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="avatar-lg">
+                      <img src="https://i.pravatar.cc/100?img=11" alt="Avatar">
+                    </div>
+                    <div>
+                      <div class="font-medium">Max Müller</div>
+                      <div class="text-sm text-surface-500">max@example.com</div>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <button class="btn-primary btn-sm flex-1">Nachricht</button>
+                    <button class="btn-secondary btn-sm flex-1">Profil</button>
+                  </div>
+                </div>
+                
+                <!-- Detailed User Card -->
+                <div class="p-4 bg-surface-50 rounded-lg">
+                  <div class="text-center">
+                    <div class="avatar-xl mx-auto mb-3">
+                      <img src="https://i.pravatar.cc/100?img=12" alt="Avatar">
+                    </div>
+                    <div class="font-medium">Lisa Weber</div>
+                    <div class="text-sm text-surface-500 mb-3">Senior Developer</div>
+                    <div class="flex justify-center gap-4 text-sm">
+                      <div class="text-center">
+                        <div class="font-bold">142</div>
+                        <div class="text-surface-500">Projekte</div>
+                      </div>
+                      <div class="text-center">
+                        <div class="font-bold">98%</div>
+                        <div class="text-surface-500">Rating</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+          
+          <!-- User Dropdown -->
+          <section class="card-tool lg:col-span-2">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">User Dropdown Menu</h2>
+            </div>
+            <div class="card-tool-body">
+              
+              <div class="dropdown" x-data="{ open: false }">
+                <button @click="open = !open" class="flex items-center gap-2 p-2 rounded-lg hover:bg-surface-50">
+                  <div class="avatar-sm">
+                    <img src="https://i.pravatar.cc/100?img=15" alt="Avatar">
+                    <span class="avatar-status-online"></span>
+                  </div>
+                  <div class="text-left">
+                    <div class="text-sm font-medium">Max Kunde</div>
+                    <div class="text-xs text-surface-500">Administrator</div>
+                  </div>
+                  <svg class="w-4 h-4 text-surface-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                
+                <div x-show="open" @click.away="open = false" x-transition class="dropdown-menu w-64">
+                  <div class="px-4 py-3 border-b border-surface-200">
+                    <div class="flex items-center gap-3">
+                      <div class="avatar-md">
+                        <img src="https://i.pravatar.cc/100?img=15" alt="Avatar">
+                      </div>
+                      <div>
+                        <div class="font-medium">Max Kunde</div>
+                        <div class="text-sm text-surface-500">max@trafficdesign.de</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-1">
+                    <a href="#" class="dropdown-item">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                      </svg>
+                      Mein Profil
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                      </svg>
+                      Einstellungen
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      Hilfe
+                    </a>
+                  </div>
+                  <div class="border-t border-surface-200 py-1">
+                    <a href="#" class="dropdown-item-danger">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                      </svg>
+                      Abmelden
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

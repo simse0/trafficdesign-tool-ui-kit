@@ -1,0 +1,485 @@
+# Trafficdesign UI Kit - Design System Rules
+
+## Projekt-Standard
+Dieses Projekt verwendet das **Trafficdesign UI Kit** - ein Enterprise SaaS Design System für Laravel Breeze + Tailwind CSS + Alpine.js, optimiert für hohe Informationsdichte und professionelle Dashboard-Anwendungen.
+
+**Referenz-Dokumentation:** `DESIGN-SYSTEM.md`
+**Projekt-Pfad:** `/Users/smarqua/cursor-projects/tailwind-example`
+
+---
+
+## Technologie-Stack
+
+### Pflicht
+- **Laravel Breeze** (Blade Stack) für Authentication
+- **Tailwind CSS 3.4+** mit Custom Theme
+- **Alpine.js 3.14+** für Interaktivität
+- **Vite** als Build-Tool
+- **Inter Font** als UI-Schriftart
+
+### Verboten
+- Keine anderen CSS-Frameworks (Bootstrap, Bulma, etc.)
+- Keine Inline-Styles (nutze Tailwind-Klassen)
+- Kein jQuery (nutze Alpine.js)
+- Keine Custom CSS außerhalb von `globals.css`
+
+---
+
+## Corporate Identity (CI)
+
+### Brand Colors (IMMER verwenden)
+
+| Farbe | Hex | Tailwind-Klasse | Verwendung |
+|-------|-----|-----------------|------------|
+| **Primary** | `#00B3C7` | `brand-primary` | Primäre Aktionen, Links, Focus |
+| Primary Hover | `#009AA8` | `brand-primary-hover` | Button-Hover-States |
+| Primary Active | `#008494` | `brand-primary-active` | Button-Active-States |
+| Primary Light | `#E5F8FA` | `brand-primary-light` | Badges, Highlights |
+| **Dark** | `#333333` | `brand-dark` | Text, Icons, Borders |
+| **Light** | `#E5F2F3` | `brand-light` | Sidebar-BG, Table-Hover |
+
+### Semantic Colors
+
+- **Success:** `#22C55E` (`ui-success`) - Erfolg, Aktiv, Online
+- **Warning:** `#F59E0B` (`ui-warning`) - Warnung, Ausstehend
+- **Error:** `#EF4444` (`ui-error`) - Fehler, Löschen, Offline
+- **Info:** `#3B82F6` (`ui-info`) - Information, Hinweise
+
+### Surface (Graustufen)
+
+- `surface-50` bis `surface-900` für Backgrounds, Borders, Text
+
+**Regel:** Verwende NIEMALS `blue-500`, `green-600`, etc. aus Tailwind Default → Immer `brand-*` oder `ui-*` verwenden!
+
+---
+
+## Typografie
+
+### Schriftgrößen (kompakt für Dashboards)
+
+- **Standard UI-Text:** `text-sm` (14px) ← Basis für Body, Buttons, Inputs
+- **Captions/Timestamps:** `text-xs` (12px)
+- **Subheadings:** `text-lg` (16px)
+- **Section Headers (H2):** `text-2xl` (20px)
+- **Page Titles (H1):** `text-3xl` (24px)
+
+**Regel:** Basis-Schriftgröße ist `14px`, nicht `16px`! Dashboard-Interfaces brauchen kompakte Typografie.
+
+### Font-Stack
+
+```css
+font-family: 'Inter', 'system-ui', '-apple-system', 'sans-serif';
+```
+
+**Einbindung im Layout:**
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+```
+
+---
+
+## CSS-Komponenten (IMMER verwenden!)
+
+### Buttons
+
+**Verwende diese Klassen:**
+- `.btn-primary` - Primäre Aktion (Teal)
+- `.btn-secondary` - Sekundäre Aktion (White/Border)
+- `.btn-ghost` - Transparenter Button
+- `.btn-danger` - Destruktive Aktion (Rot)
+- `.btn-success` - Bestätigung (Grün)
+- Größen: `.btn-xs`, `.btn-sm`, `.btn-lg`
+- Icons: `.btn-icon`, `.btn-icon-primary`
+
+**NIEMALS:**
+```html
+<!-- ❌ FALSCH -->
+<button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">
+
+<!-- ✅ RICHTIG -->
+<button class="btn-primary">Speichern</button>
+```
+
+### Cards & Containers
+
+- `.card-tool` - Standard Card
+- `.card-tool-header` - Card-Header
+- `.card-tool-body` - Card-Body
+- `.card-tool-footer` - Card-Footer
+
+**Struktur:**
+```html
+<div class="card-tool">
+  <div class="card-tool-header">
+    <h2 class="font-semibold">Titel</h2>
+  </div>
+  <div class="card-tool-body">Content</div>
+  <div class="card-tool-footer">Actions</div>
+</div>
+```
+
+### Form Inputs
+
+- `.input-field` - Standard Text-Input
+- `.input-field-error` - Error-State
+- `.input-field-success` - Success-State
+- `.select-field` - Native Select
+- `.checkbox-field` - Checkbox
+- `.radio-field` - Radio Button
+- `.toggle` + `.toggle-knob` - Toggle Switch
+- `.label`, `.label-required` - Labels
+- `.help-text`, `.error-text` - Hilfetext
+
+**Beispiel:**
+```html
+<div>
+  <label class="label label-required">Name</label>
+  <input type="text" class="input-field" placeholder="Eingabe...">
+  <p class="help-text">Hilfetext hier</p>
+</div>
+```
+
+### Tabellen
+
+- `.table-tool` - Basis-Tabelle
+- `.table-tool-compact` - Kompaktere Zeilen
+- `.table-tool-striped` - Gestreifte Zeilen
+
+**Immer in Card + Overflow-Container:**
+```html
+<div class="card-tool">
+  <div class="overflow-x-auto">
+    <table class="table-tool">
+      <!-- ... -->
+    </table>
+  </div>
+</div>
+```
+
+### Badges & Tags
+
+- `.badge-primary`, `.badge-success`, `.badge-warning`, `.badge-error`, `.badge-info`, `.badge-neutral`
+- `.tag` + `.tag-close` - Tag mit Close-Button
+
+### Alerts & Toasts
+
+- `.alert-success`, `.alert-warning`, `.alert-error`, `.alert-info`
+- `.toast-success`, `.toast-warning`, `.toast-error`, `.toast-info`
+
+**JavaScript Notification:**
+```javascript
+notify('Erfolgreich gespeichert!', 'success');
+notify('Ein Fehler ist aufgetreten', 'error');
+```
+
+### Weitere Komponenten
+
+Siehe `DESIGN-SYSTEM.md` für:
+- Avatars (`.avatar-*`)
+- Navigation (`.sidebar-*`, `.topbar-*`, `.breadcrumbs-*`)
+- Tabs (`.tabs`, `.tab-active`)
+- Stepper (`.stepper-*`)
+- Timeline (`.timeline-*`)
+- Loading States (`.spinner-*`, `.skeleton-*`, `.progress-bar-*`)
+- Modals (`.modal-*`)
+- Dropdowns (`.dropdown-*`)
+- Stats/KPI (`.stat-card`, `.stat-value`, `.stat-trend-*`)
+- Empty States (`.empty-state-*`)
+- File Upload (`.file-upload-*`)
+- Pagination (`.pagination-*`)
+- Context Menu (`.context-menu-*`)
+- Bulk Actions (`.bulk-action-bar`)
+
+---
+
+## Alpine.js Patterns
+
+### Notifications Store (Global verfügbar)
+
+```javascript
+// Bereits in resources/js/app.js integriert
+Alpine.store('notifications', {
+    items: [],
+    add(notification) { /* ... */ },
+    remove(id) { /* ... */ }
+})
+
+// Global helper
+window.notify = (message, type = 'info', duration = 5000) => {
+    Alpine.store('notifications').add({ message, type, duration })
+}
+```
+
+### Häufige Patterns
+
+**Dropdown:**
+```html
+<div x-data="{ open: false }">
+  <button @click="open = !open">Toggle</button>
+  <div x-show="open" @click.away="open = false">Menu</div>
+</div>
+```
+
+**Modal:**
+```html
+<div x-data="{ open: false }">
+  <button @click="open = true">Öffnen</button>
+  <div x-show="open" @keydown.escape.window="open = false" class="modal-backdrop">
+    <div class="modal">Content</div>
+  </div>
+</div>
+```
+
+**Tabs:**
+```html
+<div x-data="{ tab: 'tab1' }">
+  <div class="tabs">
+    <button @click="tab = 'tab1'" :class="tab === 'tab1' ? 'tab-active' : 'tab'">Tab 1</button>
+  </div>
+  <div x-show="tab === 'tab1'">Content 1</div>
+</div>
+```
+
+**Toggle Switch:**
+```html
+<div x-data="{ enabled: false }">
+  <button @click="enabled = !enabled" :data-checked="enabled" class="toggle">
+    <span class="toggle-knob"></span>
+  </button>
+</div>
+```
+
+---
+
+## Laravel Blade Komponenten
+
+### Empfohlene Komponenten
+
+Erstelle diese Blade-Komponenten in `resources/views/components/`:
+
+1. **button.blade.php** - Buttons mit Varianten
+2. **card.blade.php** - Card-Container
+3. **badge.blade.php** - Status-Badges
+4. **alert.blade.php** - Alert-Messages
+5. **input.blade.php** - Form-Inputs
+6. **avatar.blade.php** - User-Avatars
+7. **stat-card.blade.php** - KPI-Karten
+
+**Beispiel Button-Komponente:**
+```blade
+@props(['variant' => 'primary', 'size' => '', 'type' => 'button'])
+
+@php
+$classes = match($variant) {
+    'primary' => 'btn-primary',
+    'secondary' => 'btn-secondary',
+    'danger' => 'btn-danger',
+    default => 'btn-primary'
+};
+$sizeClass = match($size) {
+    'sm' => 'btn-sm',
+    'lg' => 'btn-lg',
+    default => ''
+};
+@endphp
+
+<button {{ $attributes->merge(['type' => $type, 'class' => "$classes $sizeClass"]) }}>
+    {{ $slot }}
+</button>
+```
+
+**Verwendung:**
+```blade
+<x-button variant="primary">Speichern</x-button>
+<x-button variant="danger" size="sm">Löschen</x-button>
+```
+
+---
+
+## Layout-Struktur (Laravel)
+
+### Standard-Layout
+
+**Datei:** `resources/views/layouts/app.blade.php`
+
+```blade
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+    <div class="flex min-h-screen">
+        @include('layouts.sidebar')
+        
+        <div class="flex-1 flex flex-col min-w-0">
+            @include('layouts.topbar')
+            
+            <main class="flex-1 p-6 overflow-auto">
+                {{ $slot }}
+            </main>
+            
+            @include('layouts.footer')
+        </div>
+    </div>
+    
+    @include('layouts.toasts')
+</body>
+</html>
+```
+
+### Erforderliche Partials
+
+- `layouts/sidebar.blade.php` - Sidebar-Navigation
+- `layouts/topbar.blade.php` - Top-Header mit User-Menu
+- `layouts/footer.blade.php` - Footer
+- `layouts/toasts.blade.php` - Toast-Container
+
+---
+
+## Grid-System & Spacing
+
+### Standard-Layouts
+
+```html
+<!-- 50/50 -->
+<div class="grid grid-cols-2 gap-4">...</div>
+
+<!-- 33/33/33 -->
+<div class="grid grid-cols-3 gap-4">...</div>
+
+<!-- 66/33 (2:1) -->
+<div class="grid grid-cols-3 gap-4">
+  <div class="col-span-2">...</div>
+  <div>...</div>
+</div>
+
+<!-- Responsive -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">...</div>
+```
+
+### Spacing (konsistent verwenden)
+
+- **Card/Panel Padding:** `p-4` (16px)
+- **Grid Gap:** `gap-4` (16px)
+- **Vertikale Abstände:** `space-y-4` (16px)
+- **Section Margins:** `mb-6` (24px)
+
+---
+
+## Best Practices
+
+### 1. Button-Hierarchie
+
+- **Primary:** Hauptaktion (1x pro Bereich)
+- **Secondary:** Alternative Aktion
+- **Ghost:** Tertiäre Aktion (weniger wichtig)
+- **Danger:** Destruktive Aktion (Löschen, Abbrechen)
+
+### 2. Responsive Design
+
+**Fokus:** Desktop-first (1024px+), dann nach unten optimieren
+
+```html
+<!-- Mobile: Stack, Desktop: Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+```
+
+### 3. Accessibility
+
+- Verwende semantisches HTML (`<button>`, `<nav>`, `<header>`, etc.)
+- ARIA-Labels für Icon-Buttons: `aria-label="Schließen"`
+- Keyboard-Navigation: `@keydown.escape`, `@keydown.enter`
+- Focus-States sind automatisch eingebaut
+
+### 4. Performance
+
+- Nutze `@vite()` für Assets
+- Lazy-Load mit Alpine.js: `x-show` statt `x-if` für große Listen
+- Skeleton-Loader für langsame Requests
+
+---
+
+## Datei-Struktur (Laravel)
+
+```
+resources/
+├── css/
+│   └── app.css               # globals.css hier einfügen
+├── js/
+│   └── app.js                # Alpine.js + Stores
+└── views/
+    ├── layouts/
+    │   ├── app.blade.php     # Haupt-Layout
+    │   ├── sidebar.blade.php
+    │   ├── topbar.blade.php
+    │   ├── footer.blade.php
+    │   └── toasts.blade.php
+    ├── components/
+    │   ├── button.blade.php
+    │   ├── card.blade.php
+    │   ├── badge.blade.php
+    │   └── ...
+    └── pages/
+        └── dashboard.blade.php
+```
+
+---
+
+## Quick Commands für AI-Assistenten
+
+Verwende diese Befehle, um Features zu erstellen:
+
+```
+"Erstelle ein User-Dashboard mit dem Trafficdesign UI Kit"
+"Füge eine sortierbare Tabelle im Trafficdesign-Style hinzu"
+"Erstelle ein Modal zum Bearbeiten von Benutzern"
+"Baue ein Formular mit Validation-States (Error/Success)"
+"Implementiere eine KPI-Card mit Trend-Indikator"
+"Erstelle eine Timeline für Activity-Logs"
+```
+
+Der AI-Assistent wird automatisch die richtigen CSS-Klassen, Alpine.js Patterns und Blade-Komponenten verwenden.
+
+---
+
+## Verboten / Don'ts
+
+❌ **NIEMALS:**
+- Tailwind Default Colors verwenden (`blue-500`, `green-600`, etc.)
+- Inline-Styles schreiben (`style="..."`)
+- Custom CSS außerhalb von `globals.css`
+- jQuery oder andere JS-Bibliotheken
+- Bootstrap, Bulma, oder andere CSS-Frameworks
+- Basis-Schriftgröße > 14px für UI-Elemente
+- Mehr als 1x `.btn-primary` pro logischem Bereich
+
+✅ **IMMER:**
+- CSS-Komponenten-Klassen verwenden (`.btn-primary`, `.card-tool`, etc.)
+- `brand-*` und `ui-*` Farben verwenden
+- Alpine.js für Interaktivität
+- Blade-Komponenten erstellen für wiederholte Elemente
+- Accessibility beachten (ARIA, Keyboard-Navigation)
+- Mobile-Responsive denken (`lg:`, `md:`)
+
+---
+
+## Referenzen
+
+- **Vollständige Dokumentation:** `DESIGN-SYSTEM.md`
+- **Demo-Seiten:** `http://localhost:3000` (14 Unterseiten mit allen Komponenten)
+- **CSS-Klassen:** `src/styles/globals.css` (50+ Komponenten)
+- **Tailwind Config:** `tailwind.config.js`
+- **Alpine.js Setup:** `src/main.js`
+
+---
+
+**Version:** 1.0.0  
+**Letzte Aktualisierung:** Dezember 2024
+

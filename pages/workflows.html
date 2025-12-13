@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflows - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/workflows.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+            Workflows
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Workflows</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Workflows</h1>
+          <p class="text-surface-500 mt-1">Stepper, Wizard und Progress-Tracking.</p>
+        </div>
+        
+        <div class="space-y-8">
+          
+          <!-- Horizontal Stepper -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Horizontaler Stepper</h2>
+            </div>
+            <div class="card-tool-body">
+              
+              <div class="stepper" x-data="{ currentStep: 2 }">
+                <!-- Step 1 - Completed -->
+                <div class="stepper-step stepper-step-completed">
+                  <div class="stepper-indicator">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <span class="stepper-label">Konto erstellen</span>
+                </div>
+                
+                <div class="stepper-connector bg-ui-success"></div>
+                
+                <!-- Step 2 - Active -->
+                <div class="stepper-step stepper-step-active">
+                  <div class="stepper-indicator">2</div>
+                  <span class="stepper-label">Profil ausfüllen</span>
+                </div>
+                
+                <div class="stepper-connector"></div>
+                
+                <!-- Step 3 - Pending -->
+                <div class="stepper-step stepper-step-pending">
+                  <div class="stepper-indicator">3</div>
+                  <span class="stepper-label">Verifizierung</span>
+                </div>
+                
+                <div class="stepper-connector"></div>
+                
+                <!-- Step 4 - Pending -->
+                <div class="stepper-step stepper-step-pending">
+                  <div class="stepper-indicator">4</div>
+                  <span class="stepper-label">Abschluss</span>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Vertical Stepper -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Vertikaler Stepper mit Inhalt</h2>
+            </div>
+            <div class="card-tool-body">
+              
+              <div class="space-y-0" x-data="{ currentStep: 2 }">
+                
+                <!-- Step 1 - Completed -->
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 bg-ui-success text-white rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <div class="w-0.5 h-full bg-ui-success mt-2"></div>
+                  </div>
+                  <div class="pb-8">
+                    <h3 class="font-medium text-ui-success">Bestellung aufgegeben</h3>
+                    <p class="text-sm text-surface-500 mt-1">15. Dezember 2024, 14:32 Uhr</p>
+                    <p class="text-sm text-surface-600 mt-2">Ihre Bestellung #12345 wurde erfolgreich aufgegeben.</p>
+                  </div>
+                </div>
+                
+                <!-- Step 2 - Active -->
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 bg-brand-primary text-white rounded-full flex items-center justify-center animate-pulse-slow">
+                      <span class="text-sm font-medium">2</span>
+                    </div>
+                    <div class="w-0.5 h-full bg-surface-200 mt-2"></div>
+                  </div>
+                  <div class="pb-8">
+                    <h3 class="font-medium text-brand-primary">In Bearbeitung</h3>
+                    <p class="text-sm text-surface-500 mt-1">Aktuell</p>
+                    <p class="text-sm text-surface-600 mt-2">Ihre Bestellung wird gerade für den Versand vorbereitet.</p>
+                    <div class="mt-3">
+                      <div class="progress-bar w-48">
+                        <div class="progress-bar-fill" style="width: 60%"></div>
+                      </div>
+                      <p class="text-xs text-surface-500 mt-1">60% abgeschlossen</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Step 3 - Pending -->
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 bg-white border-2 border-surface-300 text-surface-400 rounded-full flex items-center justify-center">
+                      <span class="text-sm font-medium">3</span>
+                    </div>
+                    <div class="w-0.5 h-full bg-surface-200 mt-2"></div>
+                  </div>
+                  <div class="pb-8">
+                    <h3 class="font-medium text-surface-400">Versandt</h3>
+                    <p class="text-sm text-surface-400 mt-1">Ausstehend</p>
+                  </div>
+                </div>
+                
+                <!-- Step 4 - Pending -->
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 bg-white border-2 border-surface-300 text-surface-400 rounded-full flex items-center justify-center">
+                      <span class="text-sm font-medium">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="font-medium text-surface-400">Zugestellt</h3>
+                    <p class="text-sm text-surface-400 mt-1">Ausstehend</p>
+                  </div>
+                </div>
+                
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Interactive Wizard -->
+          <section class="card-tool" x-data="{ step: 1, maxSteps: 4 }">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Interaktiver Wizard</h2>
+              <span class="badge-primary" x-text="'Schritt ' + step + ' von ' + maxSteps"></span>
+            </div>
+            <div class="card-tool-body">
+              
+              <!-- Progress Bar -->
+              <div class="mb-6">
+                <div class="progress-bar">
+                  <div class="progress-bar-fill transition-all duration-300" :style="'width: ' + (step / maxSteps * 100) + '%'"></div>
+                </div>
+              </div>
+              
+              <!-- Step Content -->
+              <div class="min-h-32">
+                <div x-show="step === 1" x-transition>
+                  <h3 class="text-lg font-medium mb-2">Grundinformationen</h3>
+                  <p class="text-sm text-surface-600 mb-4">Geben Sie Ihre grundlegenden Informationen ein.</p>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label class="label">Vorname</label>
+                      <input type="text" class="input-field" placeholder="Max">
+                    </div>
+                    <div>
+                      <label class="label">Nachname</label>
+                      <input type="text" class="input-field" placeholder="Mustermann">
+                    </div>
+                  </div>
+                </div>
+                
+                <div x-show="step === 2" x-transition>
+                  <h3 class="text-lg font-medium mb-2">Kontaktdaten</h3>
+                  <p class="text-sm text-surface-600 mb-4">Wie können wir Sie erreichen?</p>
+                  <div class="space-y-4">
+                    <div>
+                      <label class="label">E-Mail</label>
+                      <input type="email" class="input-field" placeholder="max@example.com">
+                    </div>
+                    <div>
+                      <label class="label">Telefon</label>
+                      <input type="tel" class="input-field" placeholder="+49 123 456789">
+                    </div>
+                  </div>
+                </div>
+                
+                <div x-show="step === 3" x-transition>
+                  <h3 class="text-lg font-medium mb-2">Präferenzen</h3>
+                  <p class="text-sm text-surface-600 mb-4">Wählen Sie Ihre Einstellungen.</p>
+                  <div class="space-y-3">
+                    <label class="flex items-center gap-2">
+                      <input type="checkbox" class="checkbox-field" checked>
+                      <span>Newsletter erhalten</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                      <input type="checkbox" class="checkbox-field">
+                      <span>SMS-Benachrichtigungen</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                      <input type="checkbox" class="checkbox-field" checked>
+                      <span>Produkt-Updates</span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div x-show="step === 4" x-transition>
+                  <div class="text-center py-4">
+                    <div class="w-16 h-16 bg-ui-success-light rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg class="w-8 h-8 text-ui-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">Fertig!</h3>
+                    <p class="text-sm text-surface-600">Ihr Profil wurde erfolgreich eingerichtet.</p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="card-tool-footer flex justify-between">
+              <button 
+                @click="step = Math.max(1, step - 1)"
+                class="btn-secondary"
+                :disabled="step === 1"
+                :class="{ 'opacity-50 cursor-not-allowed': step === 1 }"
+              >
+                Zurück
+              </button>
+              <button 
+                @click="step = Math.min(maxSteps, step + 1)"
+                class="btn-primary"
+                x-text="step === maxSteps ? 'Abschließen' : 'Weiter'"
+              >
+                Weiter
+              </button>
+            </div>
+          </section>
+          
+          <!-- Progress Tracking -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Progress-Tracking</h2>
+            </div>
+            <div class="card-tool-body">
+              <div class="space-y-4">
+                
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-ui-success-light rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-ui-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="font-medium">Design fertiggestellt</span>
+                      <span class="text-sm text-ui-success">100%</span>
+                    </div>
+                    <div class="progress-bar progress-bar-success">
+                      <div class="progress-bar-fill" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center">
+                    <span class="spinner-sm text-brand-primary"></span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="font-medium">Entwicklung</span>
+                      <span class="text-sm text-brand-primary">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-bar-fill" style="width: 65%"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-surface-100 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-surface-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="font-medium text-surface-500">Testing</span>
+                      <span class="text-sm text-surface-400">Ausstehend</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-bar-fill" style="width: 0%"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-surface-100 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-surface-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="font-medium text-surface-500">Deployment</span>
+                      <span class="text-sm text-surface-400">Ausstehend</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-bar-fill" style="width: 0%"></div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

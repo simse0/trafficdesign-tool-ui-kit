@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenvisualisierung - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/data-viz.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            Datenvisualisierung
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Datenvisualisierung</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Datenvisualisierung</h1>
+          <p class="text-surface-500 mt-1">KPI-Cards, Stats und Chart-Container.</p>
+        </div>
+        
+        <div class="space-y-8">
+          
+          <!-- KPI Cards -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">KPI / Stats Cards</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              
+              <div class="stat-card">
+                <div class="stat-label">Umsatz</div>
+                <div class="stat-value">€124.520</div>
+                <div class="stat-trend-up">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                  <span>+12.5%</span>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-label">Bestellungen</div>
+                <div class="stat-value">1.842</div>
+                <div class="stat-trend-up">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                  <span>+8.2%</span>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-label">Absprungrate</div>
+                <div class="stat-value">24.3%</div>
+                <div class="stat-trend-down">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6"/>
+                  </svg>
+                  <span>-3.1%</span>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-label">Conversion Rate</div>
+                <div class="stat-value">3.42%</div>
+                <div class="stat-trend-neutral">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/>
+                  </svg>
+                  <span>0.0%</span>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Stat Cards with Icons -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Stats mit Icons</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              
+              <div class="card-tool p-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-brand-light rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold">2.340</div>
+                    <div class="text-sm text-surface-500">Nutzer</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-tool p-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-ui-success-light rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-ui-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold">98.5%</div>
+                    <div class="text-sm text-surface-500">Uptime</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-tool p-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-ui-warning-light rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-ui-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold">142ms</div>
+                    <div class="text-sm text-surface-500">Latenz</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-tool p-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-ui-info-light rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-ui-info" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold">847</div>
+                    <div class="text-sm text-surface-500">Projekte</div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Chart Containers -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Chart-Container</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              
+              <!-- Line Chart Placeholder -->
+              <div class="card-tool">
+                <div class="card-tool-header">
+                  <h3 class="font-medium">Umsatzentwicklung</h3>
+                  <select class="select-field w-32">
+                    <option>Letzte 7 Tage</option>
+                    <option>Letzter Monat</option>
+                    <option>Letztes Jahr</option>
+                  </select>
+                </div>
+                <div class="card-tool-body">
+                  <!-- Placeholder für Chart -->
+                  <div class="h-64 bg-surface-50 rounded-lg border-2 border-dashed border-surface-200 flex items-center justify-center">
+                    <div class="text-center">
+                      <svg class="w-12 h-12 text-surface-300 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                      </svg>
+                      <p class="text-sm text-surface-400">Chart.js / ApexCharts hier einbinden</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Bar Chart Placeholder -->
+              <div class="card-tool">
+                <div class="card-tool-header">
+                  <h3 class="font-medium">Verkäufe nach Kategorie</h3>
+                </div>
+                <div class="card-tool-body">
+                  <div class="h-64 bg-surface-50 rounded-lg border-2 border-dashed border-surface-200 flex items-center justify-center">
+                    <div class="text-center">
+                      <svg class="w-12 h-12 text-surface-300 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                      </svg>
+                      <p class="text-sm text-surface-400">Balkendiagramm Platzhalter</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Data Summary -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Daten-Zusammenfassung</h2>
+            <div class="card-tool">
+              <div class="card-tool-body">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  
+                  <div class="text-center p-4 border-r border-surface-200">
+                    <div class="text-3xl font-bold text-brand-primary">87%</div>
+                    <div class="text-sm text-surface-500 mt-1">Zufriedenheit</div>
+                    <div class="progress-bar mt-2">
+                      <div class="progress-bar-fill" style="width: 87%"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="text-center p-4 border-r border-surface-200">
+                    <div class="text-3xl font-bold text-ui-success">156</div>
+                    <div class="text-sm text-surface-500 mt-1">Neue Kunden</div>
+                    <div class="flex items-center justify-center gap-1 mt-2 text-ui-success text-sm">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                      </svg>
+                      +23%
+                    </div>
+                  </div>
+                  
+                  <div class="text-center p-4 border-r border-surface-200">
+                    <div class="text-3xl font-bold text-ui-warning">23</div>
+                    <div class="text-sm text-surface-500 mt-1">Offene Tasks</div>
+                    <div class="flex items-center justify-center gap-1 mt-2 text-ui-warning text-sm">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                      </svg>
+                      Achtung
+                    </div>
+                  </div>
+                  
+                  <div class="text-center p-4">
+                    <div class="text-3xl font-bold text-brand-dark">€48k</div>
+                    <div class="text-sm text-surface-500 mt-1">Monatsumsatz</div>
+                    <div class="flex items-center justify-center gap-1 mt-2 text-ui-success text-sm">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                      </svg>
+                      +12%
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Mini Sparklines (CSS-only) -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Mini-Sparklines (CSS)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              
+              <div class="card-tool p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-medium">Seitenaufrufe</span>
+                  <span class="text-sm text-ui-success">+15%</span>
+                </div>
+                <div class="text-2xl font-bold mb-2">12.4k</div>
+                <!-- CSS Sparkline -->
+                <div class="flex items-end gap-0.5 h-8">
+                  <div class="flex-1 bg-brand-primary/20 rounded-sm" style="height: 40%"></div>
+                  <div class="flex-1 bg-brand-primary/20 rounded-sm" style="height: 60%"></div>
+                  <div class="flex-1 bg-brand-primary/20 rounded-sm" style="height: 45%"></div>
+                  <div class="flex-1 bg-brand-primary/20 rounded-sm" style="height: 80%"></div>
+                  <div class="flex-1 bg-brand-primary/20 rounded-sm" style="height: 55%"></div>
+                  <div class="flex-1 bg-brand-primary/20 rounded-sm" style="height: 90%"></div>
+                  <div class="flex-1 bg-brand-primary rounded-sm" style="height: 100%"></div>
+                </div>
+              </div>
+              
+              <div class="card-tool p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-medium">Sessions</span>
+                  <span class="text-sm text-ui-success">+8%</span>
+                </div>
+                <div class="text-2xl font-bold mb-2">3.2k</div>
+                <div class="flex items-end gap-0.5 h-8">
+                  <div class="flex-1 bg-ui-success/20 rounded-sm" style="height: 30%"></div>
+                  <div class="flex-1 bg-ui-success/20 rounded-sm" style="height: 50%"></div>
+                  <div class="flex-1 bg-ui-success/20 rounded-sm" style="height: 40%"></div>
+                  <div class="flex-1 bg-ui-success/20 rounded-sm" style="height: 70%"></div>
+                  <div class="flex-1 bg-ui-success/20 rounded-sm" style="height: 60%"></div>
+                  <div class="flex-1 bg-ui-success/20 rounded-sm" style="height: 85%"></div>
+                  <div class="flex-1 bg-ui-success rounded-sm" style="height: 75%"></div>
+                </div>
+              </div>
+              
+              <div class="card-tool p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-medium">Absprünge</span>
+                  <span class="text-sm text-ui-error">+3%</span>
+                </div>
+                <div class="text-2xl font-bold mb-2">847</div>
+                <div class="flex items-end gap-0.5 h-8">
+                  <div class="flex-1 bg-ui-error/20 rounded-sm" style="height: 50%"></div>
+                  <div class="flex-1 bg-ui-error/20 rounded-sm" style="height: 45%"></div>
+                  <div class="flex-1 bg-ui-error/20 rounded-sm" style="height: 60%"></div>
+                  <div class="flex-1 bg-ui-error/20 rounded-sm" style="height: 55%"></div>
+                  <div class="flex-1 bg-ui-error/20 rounded-sm" style="height: 70%"></div>
+                  <div class="flex-1 bg-ui-error/20 rounded-sm" style="height: 65%"></div>
+                  <div class="flex-1 bg-ui-error rounded-sm" style="height: 80%"></div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

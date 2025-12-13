@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trafficdesign UI Kit - Dashboard</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <!-- Brand -->
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Übersicht</div>
+          <a href="/index.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+        </div>
+        
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Komponenten</div>
+          <a href="/pages/elements.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+            </svg>
+            Elemente
+          </a>
+          <a href="/pages/tables.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            Tabellen
+          </a>
+          <a href="/pages/forms.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Formulare
+          </a>
+          <a href="/pages/notifications.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+            </svg>
+            Benachrichtigungen
+          </a>
+          <a href="/pages/panels.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+            </svg>
+            Panels & Layouts
+          </a>
+          <a href="/pages/navigation.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            Navigation
+          </a>
+        </div>
+        
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Erweitert</div>
+          <a href="/pages/data-viz.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            Datenvisualisierung
+          </a>
+          <a href="/pages/loading-states.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            Ladezustände
+          </a>
+          <a href="/pages/user-elements.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            User-Elemente
+          </a>
+          <a href="/pages/advanced-inputs.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+            Erweiterte Inputs
+          </a>
+          <a href="/pages/workflows.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+            Workflows
+          </a>
+          <a href="/pages/lists-feeds.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+            Listen & Feeds
+          </a>
+          <a href="/pages/context-actions.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+            </svg>
+            Kontext-Aktionen
+          </a>
+        </div>
+      </nav>
+      
+      <!-- User Section -->
+      <div class="p-3 border-t border-surface-200">
+        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-50 cursor-pointer">
+          <div class="avatar-sm">
+            <span>MK</span>
+            <span class="avatar-status-online"></span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-medium text-brand-dark truncate">Max Kunde</div>
+            <div class="text-xs text-surface-500 truncate">max@trafficdesign.de</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          
+          <!-- Breadcrumbs -->
+          <nav class="breadcrumbs">
+            <a href="#" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Dashboard</span>
+          </nav>
+        </div>
+        
+        <div class="topbar-right">
+          <!-- Search -->
+          <div class="input-group hidden md:block">
+            <svg class="input-group-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input type="search" placeholder="Suchen..." class="input-field w-64">
+          </div>
+          
+          <!-- Notifications -->
+          <div class="dropdown" x-data="{ open: false }">
+            <button @click="open = !open" class="btn-icon relative">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+              </svg>
+              <span class="absolute top-0 right-0 w-2 h-2 bg-ui-error rounded-full"></span>
+            </button>
+            <div x-show="open" @click.away="open = false" x-transition class="dropdown-menu right-0">
+              <div class="dropdown-header">Benachrichtigungen</div>
+              <a href="#" class="dropdown-item">
+                <span class="w-2 h-2 bg-ui-info rounded-full"></span>
+                Neue Nachricht erhalten
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="w-2 h-2 bg-ui-success rounded-full"></span>
+                Export abgeschlossen
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item text-brand-primary">Alle anzeigen</a>
+            </div>
+          </div>
+          
+          <!-- User Menu -->
+          <div class="dropdown" x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center gap-2 p-1 rounded-lg hover:bg-surface-50">
+              <div class="avatar-sm">
+                <span>MK</span>
+              </div>
+              <svg class="w-4 h-4 text-surface-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div x-show="open" @click.away="open = false" x-transition class="dropdown-menu right-0">
+              <div class="px-3 py-2">
+                <div class="text-sm font-medium">Max Kunde</div>
+                <div class="text-xs text-surface-500">max@trafficdesign.de</div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                Profil
+              </a>
+              <a href="#" class="dropdown-item">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                Einstellungen
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item-danger">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                </svg>
+                Abmelden
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Page Content -->
+      <main class="flex-1 p-6 overflow-auto">
+        
+        <!-- Page Header -->
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Dashboard</h1>
+          <p class="text-surface-500 mt-1">Willkommen im Trafficdesign UI Kit. Erkunde die Komponenten in der Sidebar.</p>
+        </div>
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div class="stat-card">
+            <div class="stat-label">Gesamtumsatz</div>
+            <div class="stat-value">€45.231</div>
+            <div class="stat-trend-up">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+              <span>+12.5% ggü. Vormonat</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-label">Aktive Nutzer</div>
+            <div class="stat-value">2.340</div>
+            <div class="stat-trend-up">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+              <span>+4.3% ggü. Vorwoche</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-label">Offene Tickets</div>
+            <div class="stat-value">23</div>
+            <div class="stat-trend-down">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6"/>
+              </svg>
+              <span>-8 ggü. gestern</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-label">Systemstatus</div>
+            <div class="stat-value flex items-center gap-2">
+              <span class="w-3 h-3 bg-ui-success rounded-full"></span>
+              Online
+            </div>
+            <div class="stat-trend-neutral">
+              <span>99.9% Verfügbarkeit</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- Main Content Area -->
+          <div class="lg:col-span-2 space-y-6">
+            
+            <!-- Quick Actions -->
+            <div class="card-tool">
+              <div class="card-tool-header">
+                <h2 class="font-semibold">Schnellzugriff</h2>
+              </div>
+              <div class="card-tool-body">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <a href="/pages/elements.html" class="flex flex-col items-center p-4 rounded-lg border border-surface-200 hover:border-brand-primary hover:bg-brand-light/30 transition-colors group">
+                    <div class="w-10 h-10 bg-brand-light rounded-lg flex items-center justify-center mb-2 group-hover:bg-brand-primary/20">
+                      <svg class="w-5 h-5 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                      </svg>
+                    </div>
+                    <span class="text-sm font-medium text-brand-dark">Elemente</span>
+                  </a>
+                  
+                  <a href="/pages/forms.html" class="flex flex-col items-center p-4 rounded-lg border border-surface-200 hover:border-brand-primary hover:bg-brand-light/30 transition-colors group">
+                    <div class="w-10 h-10 bg-brand-light rounded-lg flex items-center justify-center mb-2 group-hover:bg-brand-primary/20">
+                      <svg class="w-5 h-5 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                      </svg>
+                    </div>
+                    <span class="text-sm font-medium text-brand-dark">Formulare</span>
+                  </a>
+                  
+                  <a href="/pages/tables.html" class="flex flex-col items-center p-4 rounded-lg border border-surface-200 hover:border-brand-primary hover:bg-brand-light/30 transition-colors group">
+                    <div class="w-10 h-10 bg-brand-light rounded-lg flex items-center justify-center mb-2 group-hover:bg-brand-primary/20">
+                      <svg class="w-5 h-5 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                    <span class="text-sm font-medium text-brand-dark">Tabellen</span>
+                  </a>
+                  
+                  <a href="/pages/data-viz.html" class="flex flex-col items-center p-4 rounded-lg border border-surface-200 hover:border-brand-primary hover:bg-brand-light/30 transition-colors group">
+                    <div class="w-10 h-10 bg-brand-light rounded-lg flex items-center justify-center mb-2 group-hover:bg-brand-primary/20">
+                      <svg class="w-5 h-5 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                      </svg>
+                    </div>
+                    <span class="text-sm font-medium text-brand-dark">Visualisierung</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Sample Table -->
+            <div class="card-tool">
+              <div class="card-tool-header">
+                <h2 class="font-semibold">Letzte Aktivitäten</h2>
+                <a href="/pages/tables.html" class="text-sm text-brand-primary hover:underline">Alle anzeigen</a>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="table-tool">
+                  <thead>
+                    <tr>
+                      <th>Nutzer</th>
+                      <th>Aktion</th>
+                      <th>Status</th>
+                      <th>Datum</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="flex items-center gap-2">
+                        <div class="avatar-xs"><span>AK</span></div>
+                        <span>Anna Klein</span>
+                      </td>
+                      <td>Dokument hochgeladen</td>
+                      <td><span class="badge-success">Abgeschlossen</span></td>
+                      <td class="text-surface-500">vor 5 Min.</td>
+                    </tr>
+                    <tr>
+                      <td class="flex items-center gap-2">
+                        <div class="avatar-xs"><span>TM</span></div>
+                        <span>Thomas Müller</span>
+                      </td>
+                      <td>Projekt erstellt</td>
+                      <td><span class="badge-info">In Bearbeitung</span></td>
+                      <td class="text-surface-500">vor 23 Min.</td>
+                    </tr>
+                    <tr>
+                      <td class="flex items-center gap-2">
+                        <div class="avatar-xs"><span>SB</span></div>
+                        <span>Sarah Bauer</span>
+                      </td>
+                      <td>Bericht exportiert</td>
+                      <td><span class="badge-success">Abgeschlossen</span></td>
+                      <td class="text-surface-500">vor 1 Std.</td>
+                    </tr>
+                    <tr>
+                      <td class="flex items-center gap-2">
+                        <div class="avatar-xs"><span>MK</span></div>
+                        <span>Max Kunde</span>
+                      </td>
+                      <td>Einstellungen geändert</td>
+                      <td><span class="badge-warning">Ausstehend</span></td>
+                      <td class="text-surface-500">vor 2 Std.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sidebar Content -->
+          <div class="space-y-6">
+            
+            <!-- Component Overview -->
+            <div class="card-tool">
+              <div class="card-tool-header">
+                <h2 class="font-semibold">Komponenten</h2>
+              </div>
+              <div class="card-tool-body space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm">Basis-Komponenten</span>
+                  <span class="badge-primary">6</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm">Erweiterte Komponenten</span>
+                  <span class="badge-primary">7</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm">CSS-Klassen</span>
+                  <span class="badge-neutral">50+</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Alerts Sample -->
+            <div class="space-y-3">
+              <div class="alert-info">
+                <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="alert-content">
+                  <div class="alert-title">Tipp</div>
+                  <div>Nutze die Sidebar um alle Komponenten zu erkunden.</div>
+                </div>
+              </div>
+              
+              <div class="alert-success">
+                <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="alert-content">
+                  <div>UI Kit erfolgreich geladen!</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Color Palette -->
+            <div class="card-tool">
+              <div class="card-tool-header">
+                <h2 class="font-semibold">Farbpalette</h2>
+              </div>
+              <div class="card-tool-body space-y-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-brand-primary"></div>
+                  <div>
+                    <div class="text-sm font-medium">Primary</div>
+                    <div class="text-xs text-surface-500">#00B3C7</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-brand-dark"></div>
+                  <div>
+                    <div class="text-sm font-medium">Dark</div>
+                    <div class="text-xs text-surface-500">#333333</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-brand-light border border-surface-200"></div>
+                  <div>
+                    <div class="text-sm font-medium">Light</div>
+                    <div class="text-xs text-surface-500">#E5F2F3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      
+      <!-- Footer -->
+      <footer class="px-6 py-4 border-t border-surface-200 bg-white">
+        <div class="flex items-center justify-between text-sm text-surface-500">
+          <div>© 2024 Trafficdesign UI Kit</div>
+          <div class="flex items-center gap-4">
+            <a href="#" class="hover:text-brand-primary">Dokumentation</a>
+            <a href="#" class="hover:text-brand-primary">GitHub</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+  <!-- Toast Container -->
+  <div class="fixed top-4 right-4 z-50 space-y-2" x-data>
+    <template x-for="notification in $store.notifications.items" :key="notification.id">
+      <div :class="{
+        'toast-success': notification.type === 'success',
+        'toast-error': notification.type === 'error',
+        'toast-warning': notification.type === 'warning',
+        'toast-info': notification.type === 'info'
+      }">
+        <span x-text="notification.message"></span>
+        <button @click="$store.notifications.remove(notification.id)" class="ml-2 text-surface-400 hover:text-surface-600">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </template>
+  </div>
+</body>
+</html>
+

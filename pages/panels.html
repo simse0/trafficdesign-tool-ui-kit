@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panels & Layouts - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/panels.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+            </svg>
+            Panels & Layouts
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Panels & Layouts</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Panels & Layouts</h1>
+          <p class="text-surface-500 mt-1">Grid-Systeme, Cards, Tabs und Accordion-Komponenten.</p>
+        </div>
+        
+        <div class="space-y-8">
+          
+          <!-- Grid System -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Grid-System</h2>
+            
+            <div class="space-y-4">
+              <!-- Full Width -->
+              <div>
+                <p class="text-sm text-surface-500 mb-2">100% Breite</p>
+                <div class="grid grid-cols-1 gap-4">
+                  <div class="card-tool p-4 text-center bg-brand-light/50">
+                    <span class="text-sm font-medium">col-span-full (100%)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 50/50 -->
+              <div>
+                <p class="text-sm text-surface-500 mb-2">50% / 50%</p>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/2 (50%)</span>
+                  </div>
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/2 (50%)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 33/33/33 -->
+              <div>
+                <p class="text-sm text-surface-500 mb-2">33% / 33% / 33%</p>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/3 (33%)</span>
+                  </div>
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/3 (33%)</span>
+                  </div>
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/3 (33%)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 25/25/25/25 -->
+              <div>
+                <p class="text-sm text-surface-500 mb-2">25% / 25% / 25% / 25%</p>
+                <div class="grid grid-cols-4 gap-4">
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/4</span>
+                  </div>
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/4</span>
+                  </div>
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/4</span>
+                  </div>
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/4</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Mixed -->
+              <div>
+                <p class="text-sm text-surface-500 mb-2">Gemischtes Layout (2/3 + 1/3)</p>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="col-span-2 card-tool p-4 text-center">
+                    <span class="text-sm font-medium">col-span-2 (66%)</span>
+                  </div>
+                  <div class="card-tool p-4 text-center">
+                    <span class="text-sm font-medium">1/3 (33%)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Cards -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Card-Varianten</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              
+              <div class="card-tool">
+                <div class="card-tool-header">
+                  <h3 class="font-medium">Standard Card</h3>
+                </div>
+                <div class="card-tool-body">
+                  <p class="text-sm text-surface-600">Dies ist eine Standard-Card mit Header und Body.</p>
+                </div>
+              </div>
+              
+              <div class="card-tool">
+                <div class="card-tool-header">
+                  <h3 class="font-medium">Mit Footer</h3>
+                  <span class="badge-primary">Neu</span>
+                </div>
+                <div class="card-tool-body">
+                  <p class="text-sm text-surface-600">Card mit Header, Body und Footer-Bereich.</p>
+                </div>
+                <div class="card-tool-footer">
+                  <button class="btn-primary btn-sm">Aktion</button>
+                </div>
+              </div>
+              
+              <div class="panel-padded">
+                <h3 class="font-medium mb-2">Simple Panel</h3>
+                <p class="text-sm text-surface-600">Einfaches Panel ohne Header/Footer-Unterteilung.</p>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Tabs -->
+          <section x-data="{ activeTab: 'tab1' }">
+            <h2 class="text-xl font-semibold mb-4">Tabs</h2>
+            <div class="card-tool">
+              <div class="tabs px-4">
+                <button 
+                  @click="activeTab = 'tab1'" 
+                  :class="activeTab === 'tab1' ? 'tab-active' : 'tab'"
+                >
+                  Übersicht
+                </button>
+                <button 
+                  @click="activeTab = 'tab2'" 
+                  :class="activeTab === 'tab2' ? 'tab-active' : 'tab'"
+                >
+                  Einstellungen
+                </button>
+                <button 
+                  @click="activeTab = 'tab3'" 
+                  :class="activeTab === 'tab3' ? 'tab-active' : 'tab'"
+                >
+                  Aktivität
+                </button>
+              </div>
+              <div class="p-4">
+                <div x-show="activeTab === 'tab1'" x-transition>
+                  <h3 class="font-medium mb-2">Übersicht</h3>
+                  <p class="text-sm text-surface-600">Dies ist der Inhalt des ersten Tabs. Hier könnte eine Übersicht der wichtigsten Informationen stehen.</p>
+                </div>
+                <div x-show="activeTab === 'tab2'" x-transition>
+                  <h3 class="font-medium mb-2">Einstellungen</h3>
+                  <p class="text-sm text-surface-600">Hier befinden sich die Einstellungen. Verschiedene Konfigurationsoptionen können hier vorgenommen werden.</p>
+                </div>
+                <div x-show="activeTab === 'tab3'" x-transition>
+                  <h3 class="font-medium mb-2">Aktivität</h3>
+                  <p class="text-sm text-surface-600">Der Aktivitäts-Feed zeigt alle letzten Aktionen und Ereignisse an.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Accordion -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Accordion</h2>
+            <div class="card-tool divide-y divide-surface-200">
+              
+              <div x-data="{ open: true }">
+                <button 
+                  @click="open = !open" 
+                  class="w-full flex items-center justify-between p-4 text-left hover:bg-surface-50"
+                >
+                  <span class="font-medium">Was ist das Trafficdesign UI Kit?</span>
+                  <svg 
+                    class="w-5 h-5 text-surface-400 transition-transform" 
+                    :class="{ 'rotate-180': open }"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div x-show="open" x-collapse>
+                  <div class="px-4 pb-4 text-sm text-surface-600">
+                    Das Trafficdesign UI Kit ist eine Sammlung von wiederverwendbaren Komponenten für Enterprise-Anwendungen, basierend auf Tailwind CSS und Alpine.js.
+                  </div>
+                </div>
+              </div>
+              
+              <div x-data="{ open: false }">
+                <button 
+                  @click="open = !open" 
+                  class="w-full flex items-center justify-between p-4 text-left hover:bg-surface-50"
+                >
+                  <span class="font-medium">Wie kann ich die Komponenten verwenden?</span>
+                  <svg 
+                    class="w-5 h-5 text-surface-400 transition-transform" 
+                    :class="{ 'rotate-180': open }"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div x-show="open" x-collapse>
+                  <div class="px-4 pb-4 text-sm text-surface-600">
+                    Kopiere einfach die CSS-Klassen aus der globals.css in dein Projekt und verwende die HTML-Strukturen aus den Demo-Seiten als Vorlage.
+                  </div>
+                </div>
+              </div>
+              
+              <div x-data="{ open: false }">
+                <button 
+                  @click="open = !open" 
+                  class="w-full flex items-center justify-between p-4 text-left hover:bg-surface-50"
+                >
+                  <span class="font-medium">Ist das Kit mit Laravel Breeze kompatibel?</span>
+                  <svg 
+                    class="w-5 h-5 text-surface-400 transition-transform" 
+                    :class="{ 'rotate-180': open }"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div x-show="open" x-collapse>
+                  <div class="px-4 pb-4 text-sm text-surface-600">
+                    Ja! Das Kit wurde speziell für die Verwendung mit Laravel Breeze entwickelt. Die Tailwind-Konfiguration und CSS-Klassen sind 1:1 übertragbar.
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Collapsible Panels -->
+          <section>
+            <h2 class="text-xl font-semibold mb-4">Collapsible Panels</h2>
+            <div class="space-y-4">
+              
+              <div class="card-tool" x-data="{ collapsed: false }">
+                <div class="card-tool-header">
+                  <h3 class="font-medium">Einklappbares Panel</h3>
+                  <button @click="collapsed = !collapsed" class="btn-icon">
+                    <svg 
+                      class="w-5 h-5 transition-transform" 
+                      :class="{ 'rotate-180': collapsed }"
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+                    </svg>
+                  </button>
+                </div>
+                <div x-show="!collapsed" x-collapse>
+                  <div class="card-tool-body">
+                    <p class="text-sm text-surface-600">
+                      Dieser Inhalt kann durch Klicken auf das Icon im Header ein- und ausgeklappt werden.
+                      Ideal für Dashboard-Widgets oder Detailbereiche.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benachrichtigungen - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/notifications.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+            </svg>
+            Benachrichtigungen
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Benachrichtigungen</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Benachrichtigungen</h1>
+          <p class="text-surface-500 mt-1">Alerts, Toasts, Badges und Progress-Indikatoren.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Alerts -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Alert-Boxen</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <div class="alert-success">
+                <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="alert-content">
+                  <div class="alert-title">Erfolg!</div>
+                  <div>Ihre Änderungen wurden erfolgreich gespeichert.</div>
+                </div>
+              </div>
+              
+              <div class="alert-info">
+                <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="alert-content">
+                  <div class="alert-title">Information</div>
+                  <div>Ein neues Update ist verfügbar. Bitte aktualisieren Sie Ihre Anwendung.</div>
+                </div>
+              </div>
+              
+              <div class="alert-warning">
+                <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                <div class="alert-content">
+                  <div class="alert-title">Warnung</div>
+                  <div>Ihr Speicherplatz ist fast erschöpft. Bitte bereinigen Sie alte Dateien.</div>
+                </div>
+              </div>
+              
+              <div class="alert-error">
+                <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="alert-content">
+                  <div class="alert-title">Fehler</div>
+                  <div>Die Verbindung zum Server konnte nicht hergestellt werden.</div>
+                </div>
+              </div>
+              
+              <!-- Alert ohne Titel -->
+              <div class="alert-info">
+                <svg class="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="alert-content">
+                  Einfache Info-Nachricht ohne Titel.
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Badges -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Badges & Tags</h2>
+            </div>
+            <div class="card-tool-body space-y-6">
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Status Badges</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="badge-success">Aktiv</span>
+                  <span class="badge-warning">Ausstehend</span>
+                  <span class="badge-error">Fehler</span>
+                  <span class="badge-info">Neu</span>
+                  <span class="badge-primary">Featured</span>
+                  <span class="badge-neutral">Archiviert</span>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Tags</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag">
+                    JavaScript
+                    <button class="tag-close">
+                      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                      </svg>
+                    </button>
+                  </span>
+                  <span class="tag">
+                    TypeScript
+                    <button class="tag-close">
+                      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                      </svg>
+                    </button>
+                  </span>
+                  <span class="tag">React</span>
+                  <span class="tag">Tailwind</span>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Badge mit Zähler</h3>
+                <div class="flex items-center gap-4">
+                  <button class="btn-secondary relative">
+                    Nachrichten
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-ui-error text-white text-xs rounded-full flex items-center justify-center">3</span>
+                  </button>
+                  <button class="btn-icon relative">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                    </svg>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-ui-error rounded-full"></span>
+                  </button>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Status-Punkte</h3>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-ui-success rounded-full"></span>
+                    <span class="text-sm">Online</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-ui-warning rounded-full"></span>
+                    <span class="text-sm">Abwesend</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-ui-error rounded-full"></span>
+                    <span class="text-sm">Beschäftigt</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-surface-400 rounded-full"></span>
+                    <span class="text-sm">Offline</span>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Toast Demo -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Toast-Benachrichtigungen</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              <p class="text-sm text-surface-500 mb-4">
+                Klicke auf die Buttons um Toast-Benachrichtigungen zu testen.
+              </p>
+              
+              <div class="flex flex-wrap gap-2">
+                <button 
+                  @click="notify('Aktion erfolgreich ausgeführt!', 'success')"
+                  class="btn-success btn-sm"
+                >
+                  Success Toast
+                </button>
+                <button 
+                  @click="notify('Hier ist eine Information für dich.', 'info')"
+                  class="btn-primary btn-sm"
+                >
+                  Info Toast
+                </button>
+                <button 
+                  @click="notify('Achtung! Bitte überprüfen Sie Ihre Eingabe.', 'warning')"
+                  class="btn-secondary btn-sm"
+                >
+                  Warning Toast
+                </button>
+                <button 
+                  @click="notify('Ein Fehler ist aufgetreten.', 'error')"
+                  class="btn-danger btn-sm"
+                >
+                  Error Toast
+                </button>
+              </div>
+              
+              <div class="mt-6">
+                <h3 class="text-sm font-medium mb-3">Toast Vorschau (statisch)</h3>
+                <div class="space-y-2">
+                  <div class="toast-success">
+                    <svg class="w-5 h-5 text-ui-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Erfolgreich gespeichert</span>
+                  </div>
+                  <div class="toast-error">
+                    <svg class="w-5 h-5 text-ui-error" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Verbindung fehlgeschlagen</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Progress Bars -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Progress-Indikatoren</h2>
+            </div>
+            <div class="card-tool-body space-y-6">
+              
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Upload-Fortschritt</span>
+                  <span>75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 75%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Speicherplatz</span>
+                  <span class="text-ui-success">32%</span>
+                </div>
+                <div class="progress-bar progress-bar-success">
+                  <div class="progress-bar-fill" style="width: 32%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>CPU-Auslastung</span>
+                  <span class="text-ui-warning">67%</span>
+                </div>
+                <div class="progress-bar progress-bar-warning">
+                  <div class="progress-bar-fill" style="width: 67%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Speicher kritisch</span>
+                  <span class="text-ui-error">92%</span>
+                </div>
+                <div class="progress-bar progress-bar-error">
+                  <div class="progress-bar-fill" style="width: 92%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-sm font-medium mb-3">Animierter Fortschritt</h3>
+                <div x-data="{ progress: 0 }" x-init="setInterval(() => progress = progress >= 100 ? 0 : progress + 10, 500)">
+                  <div class="progress-bar">
+                    <div class="progress-bar-fill transition-all duration-300" :style="'width: ' + progress + '%'"></div>
+                  </div>
+                  <p class="text-xs text-surface-500 mt-1" x-text="progress + '% abgeschlossen'"></p>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Inline Notifications -->
+          <section class="card-tool lg:col-span-2">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Inline-Benachrichtigungen</h2>
+            </div>
+            <div class="card-tool-body">
+              
+              <div class="bg-brand-light border border-brand-primary/20 rounded-lg p-4 flex items-start gap-3">
+                <div class="w-10 h-10 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-medium text-brand-dark">Neue Funktion verfügbar!</h3>
+                  <p class="text-sm text-surface-600 mt-1">
+                    Wir haben einen neuen Dashboard-Bereich hinzugefügt. Klicken Sie hier, um mehr zu erfahren.
+                  </p>
+                  <div class="mt-3 flex gap-2">
+                    <button class="btn-primary btn-sm">Entdecken</button>
+                    <button class="btn-ghost btn-sm">Später</button>
+                  </div>
+                </div>
+                <button class="text-surface-400 hover:text-surface-600">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </button>
+              </div>
+              
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <!-- Toast Container -->
+  <div class="fixed top-4 right-4 z-50 space-y-2" x-data>
+    <template x-for="notification in $store.notifications.items" :key="notification.id">
+      <div :class="{
+        'toast-success': notification.type === 'success',
+        'toast-error': notification.type === 'error',
+        'toast-warning': notification.type === 'warning',
+        'toast-info': notification.type === 'info'
+      }">
+        <span x-text="notification.message"></span>
+        <button @click="$store.notifications.remove(notification.id)" class="ml-2 text-surface-400 hover:text-surface-600">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </template>
+  </div>
+</body>
+</html>
+

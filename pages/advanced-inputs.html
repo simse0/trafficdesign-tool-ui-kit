@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erweiterte Inputs - Trafficdesign UI Kit</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface-50" x-data="{ sidebarOpen: true }">
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="w-8 h-8 text-brand-primary" viewBox="0 0 32 32" fill="currentColor">
+          <rect x="2" y="2" width="12" height="12" rx="2"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
+        </svg>
+        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">
+          <a href="/index.html" class="sidebar-link">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Dashboard
+          </a>
+          <a href="/pages/advanced-inputs.html" class="sidebar-link-active">
+            <svg class="sidebar-link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+            Erweiterte Inputs
+          </a>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button @click="sidebarOpen = !sidebarOpen" class="btn-icon">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <nav class="breadcrumbs">
+            <a href="/index.html" class="breadcrumbs-item">Home</a>
+            <span class="breadcrumbs-separator">/</span>
+            <span class="breadcrumbs-current">Erweiterte Inputs</span>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="flex-1 p-6 overflow-auto">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-brand-dark">Erweiterte Inputs</h1>
+          <p class="text-surface-500 mt-1">File Upload, Date Picker, Color Picker und Slider.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- File Upload -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">File Upload</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <!-- Drag & Drop Zone -->
+              <div 
+                x-data="{ 
+                  isDragging: false,
+                  files: []
+                }"
+                @dragover.prevent="isDragging = true"
+                @dragleave.prevent="isDragging = false"
+                @drop.prevent="isDragging = false; files = [...$event.dataTransfer.files]"
+              >
+                <label 
+                  class="file-upload cursor-pointer"
+                  :class="{ 'file-upload-active': isDragging }"
+                >
+                  <input type="file" class="hidden" multiple @change="files = [...$event.target.files]">
+                  <svg class="file-upload-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                  </svg>
+                  <span class="file-upload-text">
+                    <span class="text-brand-primary font-medium">Klicken zum Upload</span> oder Dateien hierher ziehen
+                  </span>
+                  <span class="file-upload-hint">PNG, JPG, PDF bis 10MB</span>
+                </label>
+                
+                <!-- File List -->
+                <div x-show="files.length > 0" class="mt-4 space-y-2">
+                  <template x-for="(file, index) in files" :key="index">
+                    <div class="flex items-center gap-3 p-2 bg-surface-50 rounded-lg">
+                      <svg class="w-8 h-8 text-surface-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                      </svg>
+                      <div class="flex-1 min-w-0">
+                        <div class="text-sm font-medium truncate" x-text="file.name"></div>
+                        <div class="text-xs text-surface-500" x-text="(file.size / 1024).toFixed(1) + ' KB'"></div>
+                      </div>
+                      <button @click="files = files.filter((_, i) => i !== index)" class="btn-icon text-surface-400 hover:text-ui-error">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </template>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Date & Time Picker -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Datum & Zeit</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <div>
+                <label class="label">Datum</label>
+                <input type="date" class="input-field">
+              </div>
+              
+              <div>
+                <label class="label">Zeit</label>
+                <input type="time" class="input-field">
+              </div>
+              
+              <div>
+                <label class="label">Datum & Zeit</label>
+                <input type="datetime-local" class="input-field">
+              </div>
+              
+              <div>
+                <label class="label">Woche</label>
+                <input type="week" class="input-field">
+              </div>
+              
+              <div>
+                <label class="label">Monat</label>
+                <input type="month" class="input-field">
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Range Slider -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Range Slider</h2>
+            </div>
+            <div class="card-tool-body space-y-6">
+              
+              <div x-data="{ value: 50 }">
+                <div class="flex justify-between mb-2">
+                  <label class="label mb-0">Standard Slider</label>
+                  <span class="text-sm font-medium" x-text="value + '%'"></span>
+                </div>
+                <input 
+                  type="range" 
+                  x-model="value"
+                  class="w-full h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer accent-brand-primary"
+                >
+              </div>
+              
+              <div x-data="{ value: 75 }">
+                <div class="flex justify-between mb-2">
+                  <label class="label mb-0">Mit Farb-Indikator</label>
+                  <span class="text-sm font-medium" x-text="value + '°C'"></span>
+                </div>
+                <input 
+                  type="range" 
+                  x-model="value"
+                  min="0"
+                  max="100"
+                  class="w-full h-2 rounded-lg appearance-none cursor-pointer"
+                  :class="value > 80 ? 'accent-ui-error' : value > 50 ? 'accent-ui-warning' : 'accent-ui-success'"
+                  :style="'background: linear-gradient(to right, currentColor ' + value + '%, #e5e5e5 ' + value + '%)'"
+                >
+              </div>
+              
+              <div x-data="{ min: 20, max: 80 }">
+                <div class="flex justify-between mb-2">
+                  <label class="label mb-0">Preisbereich</label>
+                  <span class="text-sm font-medium" x-text="'€' + min + ' - €' + max"></span>
+                </div>
+                <div class="flex gap-4">
+                  <input 
+                    type="range" 
+                    x-model="min"
+                    min="0"
+                    :max="max - 1"
+                    class="flex-1 h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer accent-brand-primary"
+                  >
+                  <input 
+                    type="range" 
+                    x-model="max"
+                    :min="parseInt(min) + 1"
+                    max="100"
+                    class="flex-1 h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer accent-brand-primary"
+                  >
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Color Picker -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Color Picker</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <div x-data="{ color: '#00B3C7' }">
+                <label class="label">Farbe auswählen</label>
+                <div class="flex gap-3">
+                  <input 
+                    type="color" 
+                    x-model="color"
+                    class="w-12 h-10 rounded-md border border-surface-300 cursor-pointer"
+                  >
+                  <input 
+                    type="text" 
+                    x-model="color"
+                    class="input-field flex-1 font-mono"
+                    placeholder="#000000"
+                  >
+                </div>
+              </div>
+              
+              <div>
+                <label class="label">Vordefinierte Farben</label>
+                <div class="flex gap-2 flex-wrap" x-data="{ selected: '#00B3C7' }">
+                  <template x-for="color in ['#00B3C7', '#333333', '#E5F2F3', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6', '#8B5CF6']" :key="color">
+                    <button 
+                      @click="selected = color"
+                      class="w-8 h-8 rounded-md border-2 transition-transform hover:scale-110"
+                      :style="'background-color: ' + color"
+                      :class="selected === color ? 'border-brand-dark ring-2 ring-offset-2 ring-brand-primary' : 'border-transparent'"
+                    ></button>
+                  </template>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Toggle Switches -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Toggle Switches</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <div class="space-y-3">
+                <div x-data="{ enabled: true }" class="flex items-center justify-between p-3 bg-surface-50 rounded-lg">
+                  <div>
+                    <div class="font-medium">E-Mail-Benachrichtigungen</div>
+                    <div class="text-sm text-surface-500">Erhalte Updates per E-Mail</div>
+                  </div>
+                  <button 
+                    @click="enabled = !enabled"
+                    :data-checked="enabled"
+                    class="toggle"
+                    type="button"
+                  >
+                    <span class="toggle-knob"></span>
+                  </button>
+                </div>
+                
+                <div x-data="{ enabled: false }" class="flex items-center justify-between p-3 bg-surface-50 rounded-lg">
+                  <div>
+                    <div class="font-medium">Push-Benachrichtigungen</div>
+                    <div class="text-sm text-surface-500">Erhalte Browser-Benachrichtigungen</div>
+                  </div>
+                  <button 
+                    @click="enabled = !enabled"
+                    :data-checked="enabled"
+                    class="toggle"
+                    type="button"
+                  >
+                    <span class="toggle-knob"></span>
+                  </button>
+                </div>
+                
+                <div x-data="{ enabled: true }" class="flex items-center justify-between p-3 bg-surface-50 rounded-lg">
+                  <div>
+                    <div class="font-medium">Zwei-Faktor-Authentifizierung</div>
+                    <div class="text-sm text-surface-500">Erhöhte Sicherheit für dein Konto</div>
+                  </div>
+                  <button 
+                    @click="enabled = !enabled"
+                    :data-checked="enabled"
+                    class="toggle"
+                    type="button"
+                  >
+                    <span class="toggle-knob"></span>
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+          <!-- Number Inputs -->
+          <section class="card-tool">
+            <div class="card-tool-header">
+              <h2 class="font-semibold">Zahlen-Inputs</h2>
+            </div>
+            <div class="card-tool-body space-y-4">
+              
+              <div x-data="{ count: 1 }">
+                <label class="label">Anzahl</label>
+                <div class="flex">
+                  <button 
+                    @click="count = Math.max(0, count - 1)"
+                    class="btn-secondary rounded-r-none border-r-0"
+                  >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                    </svg>
+                  </button>
+                  <input 
+                    type="number" 
+                    x-model="count"
+                    class="input-field rounded-none w-20 text-center"
+                    min="0"
+                  >
+                  <button 
+                    @click="count++"
+                    class="btn-secondary rounded-l-none border-l-0"
+                  >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+              <div>
+                <label class="label">Währung</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-surface-500">€</span>
+                  <input type="number" class="input-field pl-7" placeholder="0.00" step="0.01">
+                </div>
+              </div>
+              
+              <div>
+                <label class="label">Prozent</label>
+                <div class="relative">
+                  <input type="number" class="input-field pr-8" placeholder="0" min="0" max="100">
+                  <span class="absolute right-3 top-1/2 -translate-y-1/2 text-surface-500">%</span>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+
