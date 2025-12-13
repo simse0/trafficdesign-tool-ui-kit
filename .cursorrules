@@ -1,7 +1,7 @@
-# Trafficdesign UI Kit - Design System Rules
+# Trafficdesign Tool UI Kit - Design System Rules
 
 ## Projekt-Standard
-Dieses Projekt verwendet das **Trafficdesign UI Kit** - ein Enterprise SaaS Design System für Laravel Breeze + Tailwind CSS + Alpine.js, optimiert für hohe Informationsdichte und professionelle Dashboard-Anwendungen.
+Dieses Projekt verwendet das **Trafficdesign Tool UI Kit** - ein Enterprise SaaS Design System für Laravel Breeze + Tailwind CSS + Alpine.js, optimiert für hohe Informationsdichte und professionelle Dashboard-Anwendungen.
 
 **Referenz-Dokumentation:** `DESIGN-SYSTEM.md`
 **Projekt-Pfad:** `/Users/smarqua/cursor-projects/tailwind-example`

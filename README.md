@@ -1,4 +1,4 @@
-# 🎨 Trafficdesign UI Kit
+# 🎨 Trafficdesign Tool UI Kit
 
 > Enterprise SaaS Design System für Laravel Breeze + Tailwind CSS + Alpine.js  
 > Optimiert für hohe Informationsdichte und professionelle Dashboard-Anwendungen
@@ -12,7 +12,7 @@
 
 ## 📋 Übersicht
 
-Das **Trafficdesign UI Kit** ist ein vollständiges Design System für moderne Enterprise-Dashboards. Es kombiniert eine durchdachte Corporate Identity mit über 50 vorgefertigten CSS-Komponenten und bietet eine konsistente, professionelle Benutzeroberfläche für datenintensive Anwendungen.
+Das **Trafficdesign Tool UI Kit** ist ein vollständiges Design System für moderne Enterprise-Dashboards. Es kombiniert eine durchdachte Corporate Identity mit über 50 vorgefertigten CSS-Komponenten und bietet eine konsistente, professionelle Benutzeroberfläche für datenintensive Anwendungen.
 
 ### ✨ Highlights
 
@@ -54,7 +54,7 @@ Das **Trafficdesign UI Kit** ist ein vollständiges Design System für moderne E
 cd /pfad/zu/deinem/laravel-projekt
 
 # .cursorrules Datei laden
-curl -o .cursorrules https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/.cursorrules
+curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
 ```
 
 #### Schritt 2: Design System referenzieren
@@ -63,9 +63,9 @@ curl -o .cursorrules https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesi
 
 ```plaintext
 # Trafficdesign UI Kit - Remote Referenz
-Dokumentation: https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/DESIGN-SYSTEM.md
-CSS-Dateien: https://github.com/DEIN-USERNAME/trafficdesign-ui-kit/tree/main/src/styles
-Demo: https://DEIN-USERNAME.github.io/trafficdesign-ui-kit
+Dokumentation: https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
+CSS-Dateien: https://github.com/simse0/trafficdesign-tool-ui-kit/tree/main/src/styles
+Demo: https://simse0.github.io/trafficdesign-tool-ui-kit
 
 // ... restlicher Inhalt ...
 ```
@@ -107,22 +107,22 @@ php artisan breeze:install blade
 npm install
 
 # UI Kit Repository klonen (temporär)
-git clone https://github.com/DEIN-USERNAME/trafficdesign-ui-kit.git /tmp/trafficdesign-ui-kit
+git clone https://github.com/simse0/trafficdesign-tool-ui-kit.git /tmp/trafficdesign-tool-ui-kit
 
 # 1. Tailwind Config kopieren und anpassen
-cp /tmp/trafficdesign-ui-kit/tailwind.config.js ./tailwind.config.js
+cp /tmp/trafficdesign-tool-ui-kit/tailwind.config.js ./tailwind.config.js
 
 # 2. CSS ersetzen
-cp /tmp/trafficdesign-ui-kit/src/styles/globals.css ./resources/css/app.css
+cp /tmp/trafficdesign-tool-ui-kit/src/styles/globals.css ./resources/css/app.css
 
 # 3. Alpine.js Store hinzufügen
-cat /tmp/trafficdesign-ui-kit/src/main.js >> ./resources/js/app.js
+cat /tmp/trafficdesign-tool-ui-kit/src/main.js >> ./resources/js/app.js
 
 # 4. Cursor Rules kopieren (optional)
-cp /tmp/trafficdesign-ui-kit/.cursorrules ./.cursorrules
+cp /tmp/trafficdesign-tool-ui-kit/.cursorrules ./.cursorrules
 
 # 5. Temp-Ordner löschen
-rm -rf /tmp/trafficdesign-ui-kit
+rm -rf /tmp/trafficdesign-tool-ui-kit
 
 # Build starten
 npm run dev
@@ -132,29 +132,29 @@ npm run dev
 
 ```bash
 # UI Kit als Submodule hinzufügen
-git submodule add https://github.com/DEIN-USERNAME/trafficdesign-ui-kit.git vendor/trafficdesign-ui-kit
+git submodule add https://github.com/simse0/trafficdesign-tool-ui-kit.git vendor/trafficdesign-tool-ui-kit
 git submodule update --init --recursive
 
 # Symlinks oder Kopier-Script erstellen
-ln -s vendor/trafficdesign-ui-kit/tailwind.config.js ./tailwind.config.js
-ln -s vendor/trafficdesign-ui-kit/src/styles/globals.css ./resources/css/app.css
+ln -s vendor/trafficdesign-tool-ui-kit/tailwind.config.js ./tailwind.config.js
+ln -s vendor/trafficdesign-tool-ui-kit/src/styles/globals.css ./resources/css/app.css
 
 # Updates holen
-git submodule update --remote vendor/trafficdesign-ui-kit
+git submodule update --remote vendor/trafficdesign-tool-ui-kit
 ```
 
 #### Option C: Einzelne Dateien direkt von GitHub laden
 
 ```bash
 # Nur die 3 wichtigsten Dateien herunterladen
-curl -o tailwind.config.js https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/tailwind.config.js
+curl -o tailwind.config.js https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/tailwind.config.js
 
-curl -o resources/css/app.css https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/src/styles/globals.css
+curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/styles/globals.css
 
-curl -o .cursorrules https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/.cursorrules
+curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
 
 # Alpine.js Store manuell in resources/js/app.js einfügen
-curl https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/src/main.js
+curl https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/main.js
 ```
 
 ---
@@ -171,13 +171,13 @@ composer require laravel/breeze --dev
 php artisan breeze:install blade
 
 # UI Kit einrichten
-curl -o .cursorrules https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/.cursorrules
-curl -o tailwind.config.js https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/tailwind.config.js
-curl -o resources/css/app.css https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/src/styles/globals.css
+curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
+curl -o tailwind.config.js https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/tailwind.config.js
+curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/styles/globals.css
 
 # In Cursor Chat eingeben:
 # "Richte das Trafficdesign UI Kit ein. Füge Alpine.js Store aus 
-#  https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/src/main.js
+#  https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/main.js
 #  zu resources/js/app.js hinzu und erstelle Layouts (Sidebar, Topbar, Footer)."
 ```
 
@@ -189,9 +189,9 @@ curl -o resources/css/app.css https://raw.githubusercontent.com/DEIN-USERNAME/tr
 
 ```bash
 # Neue Version der 3 Dateien laden
-curl -o tailwind.config.js https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/tailwind.config.js
-curl -o resources/css/app.css https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/src/styles/globals.css
-curl -o .cursorrules https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/main/.cursorrules
+curl -o tailwind.config.js https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/tailwind.config.js
+curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/styles/globals.css
+curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
 
 # Build neu starten
 npm run dev
@@ -201,8 +201,8 @@ npm run dev
 
 ```bash
 # Submodule aktualisieren
-git submodule update --remote vendor/trafficdesign-ui-kit
-git add vendor/trafficdesign-ui-kit
+git submodule update --remote vendor/trafficdesign-tool-ui-kit
+git add vendor/trafficdesign-tool-ui-kit
 git commit -m "Update Trafficdesign UI Kit"
 ```
 
@@ -210,7 +210,7 @@ git commit -m "Update Trafficdesign UI Kit"
 
 ```bash
 # Spezifische Version laden (statt 'main' → 'v1.0.0')
-curl -o tailwind.config.js https://raw.githubusercontent.com/DEIN-USERNAME/trafficdesign-ui-kit/v1.0.0/tailwind.config.js
+curl -o tailwind.config.js https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/v1.0.0/tailwind.config.js
 ```
 
 ---
@@ -219,8 +219,8 @@ curl -o tailwind.config.js https://raw.githubusercontent.com/DEIN-USERNAME/traff
 
 ```bash
 # Repository klonen
-git clone https://github.com/DEIN-USERNAME/trafficdesign-ui-kit.git
-cd trafficdesign-ui-kit
+git clone https://github.com/simse0/trafficdesign-tool-ui-kit.git
+cd trafficdesign-tool-ui-kit
 
 # Dependencies installieren
 npm install
@@ -578,7 +578,7 @@ Contributions sind willkommen! Bitte:
 ## 📞 Support & Kontakt
 
 - 📧 **E-Mail:** support@trafficdesign.com
-- 🐛 **Issues:** [GitHub Issues](https://github.com/DEIN-USERNAME/trafficdesign-ui-kit/issues)
+- 🐛 **Issues:** [GitHub Issues](https://github.com/simse0/trafficdesign-tool-ui-kit/issues)
 - 📖 **Docs:** [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md)
 
 ---
@@ -614,7 +614,7 @@ Contributions sind willkommen! Bitte:
 
 ⭐ **Star this repo** if you find it helpful!
 
-[Documentation](DESIGN-SYSTEM.md) • [Demo](http://localhost:5173) • [Issues](https://github.com/DEIN-USERNAME/trafficdesign-ui-kit/issues)
+[Documentation](DESIGN-SYSTEM.md) • [Demo](http://localhost:5173) • [Issues](https://github.com/simse0/trafficdesign-tool-ui-kit/issues)
 
 </div>
 

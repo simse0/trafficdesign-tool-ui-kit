@@ -1,4 +1,4 @@
-# Trafficdesign UI Kit - Design System Reference
+# Trafficdesign Tool UI Kit - Design System Reference
 
 > Enterprise SaaS UI Kit für Laravel Breeze + Tailwind CSS + Alpine.js  
 > Optimiert für hohe Informationsdichte und professionelle Dashboard-Anwendungen
