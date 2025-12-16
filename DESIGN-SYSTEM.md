@@ -1,10 +1,10 @@
-# Trafficdesign Tool UI Kit - Design System Reference
+# trafficdesign Tool UI Kit - Design System Reference
 
 > Enterprise SaaS UI Kit für Laravel Breeze + Tailwind CSS + Alpine.js  
 > Optimiert für hohe Informationsdichte und professionelle Dashboard-Anwendungen
 
 **Version:** 1.0.0  
-**Letzte Aktualisierung:** Dezember 2024  
+**Letzte Aktualisierung:** Dezember 2025  
 **Demo:** [http://localhost:3000](http://localhost:3000)
 
 ---
@@ -50,12 +50,12 @@ npm run dev
 
 | Name | Hex | Tailwind-Klasse | Verwendung |
 |------|-----|-----------------|------------|
-| **Primary** | `#00B3C7` | `brand-primary` | Primäre Aktionen, Links, Focus |
+| **Primary** | `#00AFCE` | `brand-primary` | Primäre Aktionen, Links, Focus |
 | Primary Hover | `#009AA8` | `brand-primary-hover` | Button-Hover |
 | Primary Active | `#008494` | `brand-primary-active` | Button-Click |
 | Primary Light | `#E5F8FA` | `brand-primary-light` | Badges, Highlights |
-| **Dark** | `#333333` | `brand-dark` | Text, Überschriften, Borders |
-| Dark Hover | `#1A1A1A` | `brand-dark-hover` | Hover-States |
+| **Dark** | `#1d1d1d` | `brand-dark` | Text, Überschriften, Borders |
+| Dark Hover | `#0a0a0a` | `brand-dark-hover` | Hover-States |
 | **Light** | `#E5F2F3` | `brand-light` | Sidebar-BG, Table-Hover |
 | Light Hover | `#D5E8E9` | `brand-light-hover` | Hover-Effekte |
 
@@ -343,8 +343,12 @@ notify('Ein Fehler ist aufgetreten', 'error', 3000);
 | `.sidebar-link` | Navigation-Link |
 | `.sidebar-link-active` | Aktiver Link |
 | `.sidebar-link-icon` | Icon im Link |
-| `.topbar` | Top-Header |
+| `.topbar` | Top-Header (dunkel: #1d1d1d) |
 | `.topbar-left` / `.topbar-right` | Header-Bereiche |
+| `.user-menu` | User-Dropdown Container |
+| `.user-menu-trigger` | User-Menu Button |
+| `.notifications-dropdown` | Benachrichtigungen Container |
+| `.notifications-trigger` | Notifications Button |
 | `.breadcrumbs` | Breadcrumb-Navigation |
 | `.breadcrumbs-item` | Breadcrumb-Link |
 | `.breadcrumbs-separator` | Trennzeichen |
@@ -905,9 +909,9 @@ xl: 1280px  (Large Desktop)
 Füge zu `.cursorrules` hinzu:
 
 ```
-# Trafficdesign UI Kit
+# trafficdesign UI Kit
 Verwende das Design System aus DESIGN-SYSTEM.md
-- Brand Colors: #00B3C7 (primary), #333333 (dark), #E5F2F3 (light)
+- Brand Colors: #00AFCE (primary), #1d1d1d (dark), #E5F2F3 (light)
 - CSS-Klassen aus globals.css (btn-*, card-*, input-*, etc.)
 - Alpine.js für Interaktivität
 - Basis-Schriftgröße: 14px (text-sm)
@@ -919,8 +923,8 @@ Verwende das Design System aus DESIGN-SYSTEM.md
 Beim Erstellen neuer Features:
 
 ```
-"Erstelle ein User-Dashboard mit dem Trafficdesign UI Kit"
-"Füge eine Tabelle im Trafficdesign-Style hinzu"
+"Erstelle ein User-Dashboard mit dem trafficdesign UI Kit"
+"Füge eine Tabelle im trafficdesign-Style hinzu"
 "Erstelle ein Modal mit brand-primary Buttons"
 ```
 
@@ -937,5 +941,5 @@ Der AI-Assistent wird dann automatisch die richtigen Klassen und Patterns verwen
 
 ---
 
-**Version 1.0.0** | © 2024 Trafficdesign | MIT License
+**Version 1.0.0** | © 2025 trafficdesign | MIT License
 

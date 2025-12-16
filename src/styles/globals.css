@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 /* ============================================
-   TRAFFICDESIGN ENTERPRISE UI KIT
+   trafficdesign ENTERPRISE UI KIT
    Globals & Component Classes
    ============================================ */
 
@@ -663,7 +663,8 @@
   .sidebar-brand {
     @apply flex items-center gap-2
            h-14 px-4
-           border-b border-surface-200;
+           bg-brand-dark
+           border-b border-brand-dark;
   }
 
   .sidebar-nav {
@@ -703,8 +704,8 @@
   .topbar {
     @apply flex items-center justify-between
            h-14 px-4
-           bg-white
-           border-b border-surface-200;
+           bg-brand-dark text-white
+           border-b border-brand-dark;
   }
 
   .topbar-left {
@@ -713,6 +714,60 @@
 
   .topbar-right {
     @apply flex items-center gap-2;
+  }
+
+  /* Semantic topbar components */
+  .notifications-dropdown {
+    @apply relative;
+  }
+
+  .notifications-trigger {
+    @apply btn-icon relative;
+  }
+
+  .user-menu {
+    @apply relative;
+  }
+
+  .user-menu-trigger {
+    @apply flex items-center gap-2 p-1.5 rounded-lg transition-colors;
+  }
+
+  /* Dark topbar overrides */
+  .topbar .btn-icon {
+    @apply text-white hover:bg-white/10;
+  }
+
+  .topbar .breadcrumbs-item {
+    @apply text-gray-300 hover:text-white;
+  }
+
+  .topbar .breadcrumbs-separator {
+    @apply text-gray-500;
+  }
+
+  .topbar .breadcrumbs-current {
+    @apply text-white;
+  }
+
+  .topbar .input-field {
+    @apply bg-white/10 border-white/20 text-white placeholder:text-gray-400
+           hover:bg-white/15 hover:border-white/30
+           focus:bg-white/20 focus:border-white focus:ring-white/30;
+  }
+
+  .topbar .input-group-icon {
+    @apply text-gray-400;
+  }
+
+  /* User menu and dropdowns in dark topbar */
+  .topbar .user-menu-trigger,
+  .topbar .notifications-trigger {
+    @apply text-white hover:bg-white/10 rounded-lg transition-colors;
+  }
+
+  .topbar .user-menu-trigger .avatar {
+    @apply bg-white/20 text-white;
   }
 
   /* ----------------------------------------

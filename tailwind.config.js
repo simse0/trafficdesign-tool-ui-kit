@@ -19,15 +19,15 @@ export default {
       '5xl': ['2.25rem', { lineHeight: '2.5rem' }],    // 36px
     },
     extend: {
-      // Trafficdesign Brand Colors
+      // trafficdesign Brand Colors
       colors: {
         brand: {
-          primary: '#00B3C7',
+          primary: '#00AFCE',
           'primary-hover': '#009AA8',
           'primary-active': '#008494',
           'primary-light': '#E5F8FA',
-          dark: '#333333',
-          'dark-hover': '#1a1a1a',
+          dark: '#1d1d1d',
+          'dark-hover': '#0a0a0a',
           light: '#E5F2F3',
           'light-hover': '#D5E8E9',
         },
@@ -113,7 +113,7 @@ export default {
       },
       // Focus Ring
       ringColor: {
-        DEFAULT: '#00B3C7',
+        DEFAULT: '#00AFCE',
       },
       ringOffsetWidth: {
         DEFAULT: '2px',

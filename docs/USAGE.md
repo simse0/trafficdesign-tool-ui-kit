@@ -1,4 +1,4 @@
-# Trafficdesign UI Kit - Dokumentation
+# trafficdesign UI Kit - Dokumentation
 
 Ein modulares UI Kit für Enterprise SaaS und interne Tools, basierend auf Tailwind CSS und Alpine.js.
 
@@ -424,6 +424,6 @@ Bei Fragen oder Problemen:
 
 ---
 
-*Erstellt mit dem Trafficdesign UI Kit v1.0.0*
+*Erstellt mit dem trafficdesign UI Kit v1.0.0*
 
 

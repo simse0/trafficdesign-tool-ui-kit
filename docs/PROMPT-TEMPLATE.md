@@ -1,4 +1,4 @@
-Richte ein neues Laravel-Projekt "[PROJEKTNAME]" mit dem Trafficdesign Tool UI Kit ein.
+Richte ein neues Laravel-Projekt "[PROJEKTNAME]" mit dem trafficdesign Tool UI Kit ein.
 
 PROJEKTZIEL:
 [Beschreibe hier kurz: Was soll das Projekt machen?]

@@ -1,4 +1,4 @@
-// Trafficdesign Tool UI Kit - ApexCharts Theme
+// trafficdesign Tool UI Kit - ApexCharts Theme
 import ApexCharts from 'apexcharts';
 
 // Standard-Theme für alle Charts

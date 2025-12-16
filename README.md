@@ -1,4 +1,4 @@
-# 🎨 Trafficdesign Tool UI Kit
+# 🎨 trafficdesign Tool UI Kit
 
 > Enterprise SaaS Design System für Laravel Breeze + Tailwind CSS + Alpine.js  
 > Optimiert für hohe Informationsdichte und professionelle Dashboard-Anwendungen
@@ -12,13 +12,13 @@
 
 ## 📋 Übersicht
 
-Das **Trafficdesign Tool UI Kit** ist ein vollständiges Design System für moderne Enterprise-Dashboards. Es kombiniert eine durchdachte Corporate Identity mit über 50 vorgefertigten CSS-Komponenten und bietet eine konsistente, professionelle Benutzeroberfläche für datenintensive Anwendungen.
+Das **trafficdesign Tool UI Kit** ist ein vollständiges Design System für moderne Enterprise-Dashboards. Es kombiniert eine durchdachte Corporate Identity mit über 50 vorgefertigten CSS-Komponenten und bietet eine konsistente, professionelle Benutzeroberfläche für datenintensive Anwendungen.
 
 ### ✨ Highlights
 
-- **🎨 Corporate Identity Integration** - Trafficdesign Brand Colors (`#00B3C7`, `#333333`, `#E5F2F3`)
+- **🎨 Corporate Identity Integration** - trafficdesign Brand Colors (`#00AFCE`, `#1d1d1d`, `#E5F2F3`)
 - **📦 50+ CSS-Komponenten** - Buttons, Cards, Forms, Tables, Badges, Modals, uvm.
-- **⚡ Alpine.js Integration** - Interaktive Komponenten ohne jQuery
+- **⚡ Alpine.js Integration** - Interaktive Komponenten ohne Livewire
 - **📱 Responsive Design** - Desktop-first mit Mobile-Support
 - **♿ Accessibility** - ARIA-Labels, Keyboard-Navigation, Focus-States
 - **🚀 Laravel Breeze Ready** - Perfekt für Laravel Blade Stack
@@ -73,8 +73,8 @@ Jetzt kannst du in Cursor direkt mit dem Design System arbeiten. Cursor liest au
 **Beispiel-Befehle:**
 
 ```
-💬 "Erstelle ein User-Dashboard mit dem Trafficdesign Tool UI Kit"
-💬 "Füge eine sortierbare Tabelle im Trafficdesign-Style hinzu"
+💬 "Erstelle ein User-Dashboard mit dem trafficdesign Tool UI Kit"
+💬 "Füge eine sortierbare Tabelle im trafficdesign-Style hinzu"
 💬 "Baue ein Modal zum Bearbeiten von Benutzern"
 💬 "Implementiere eine KPI-Card mit Trend-Indikator"
 💬 "Welche Button-Varianten gibt es im Design System?"
@@ -91,9 +91,9 @@ Jetzt kannst du in Cursor direkt mit dem Design System arbeiten. Cursor liest au
 - ✅ Blade-Komponenten-Vorlagen
 
 **Cursor nutzt NIEMALS:**
-- ❌ Tailwind Default Colors (`blue-500`, `green-600`)
+- ❌ Standard-Farbpalette von Tailwind (`blue-500`, `green-600`)
 - ❌ Inline-Styles (`style="..."`)
-- ❌ jQuery (nur Alpine.js)
+- ❌ Livewire (nur Alpine.js)
 
 #### Schritt 4: Global für alle Projekte aktivieren (optional)
 
@@ -104,7 +104,7 @@ Jetzt kannst du in Cursor direkt mit dem Design System arbeiten. Cursor liest au
 
 ---
 
-### 2. In bestehendes Laravel-Projekt integrieren
+### 2. Option: Toolkit in ein bestehendes Laravel-Projekt integrieren
 
 #### Option A: Dateien manuell kopieren (empfohlen für Produktion)
 
@@ -170,7 +170,7 @@ curl https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src
 
 ---
 
-### 3. Schnellstart mit Cursor Composer (All-in-One)
+### 3. Option: Schnellstart mit Cursor Composer (All-in-One)
 
 ```bash
 # Neues Laravel-Projekt mit UI Kit erstellen
@@ -202,7 +202,7 @@ curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficde
 
 ---
 
-### 4. Updates erhalten
+### Updates erhalten
 
 #### Bei manueller Installation:
 
@@ -287,8 +287,8 @@ npm run dev
 
 | Farbe | Hex | Verwendung |
 |-------|-----|------------|
-| **Primary** | `#00B3C7` | Primäre Aktionen, Links, Focus |
-| **Dark** | `#333333` | Text, Icons, Borders |
+| **Primary** | `#00AFCE` | Primäre Aktionen, Links, Focus |
+| **Dark** | `#1d1d1d` | Text, Icons, Borders |
 | **Light** | `#E5F2F3` | Sidebar-BG, Table-Hover |
 | **Success** | `#22C55E` | Erfolg, Aktiv, Online |
 | **Warning** | `#F59E0B` | Warnung, Ausstehend |
@@ -494,8 +494,8 @@ Dieses Projekt enthält eine `.cursorrules`-Datei für optimale AI-Unterstützun
 ### Quick Commands
 
 ```
-"Erstelle ein User-Dashboard mit dem Trafficdesign UI Kit"
-"Füge eine sortierbare Tabelle im Trafficdesign-Style hinzu"
+"Erstelle ein User-Dashboard mit dem trafficdesign UI Kit"
+"Füge eine sortierbare Tabelle im trafficdesign-Style hinzu"
 "Baue ein Modal zum Bearbeiten von Benutzern"
 "Implementiere eine KPI-Card mit Trend-Indikator"
 ```
@@ -505,7 +505,7 @@ Der AI-Assistent verwendet automatisch:
 - ✅ Brand Colors (`brand-primary`, `ui-success`, etc.)
 - ✅ Alpine.js für Interaktivität
 - ✅ 14px Basis-Schriftgröße
-- ❌ KEINE Tailwind Default Colors (`blue-500`, etc.)
+- ❌ KEINE Standard-Farbpalette von Tailwind (`blue-500`, etc.)
 
 ---
 
@@ -537,9 +537,9 @@ npm run preview
 
 ### ❌ DON'Ts
 
-- Keine Tailwind Default Colors (`blue-500`, `green-600`)
+- Keine Standard-Farbpalette von Tailwind (`blue-500`, `green-600`) - nur Custom Colors
 - Keine Inline-Styles (`style="..."`)
-- Kein jQuery (nutze Alpine.js)
+- Kein Livewire (nutze Alpine.js)
 - Keine Custom CSS außerhalb von `globals.css`
 - Keine Schriftgrößen > 14px für Standard-UI
 
@@ -559,7 +559,7 @@ npm run preview
 **MIT License**
 
 ```
-Copyright (c) 2024 Trafficdesign
+Copyright (c) 2025 trafficdesign
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

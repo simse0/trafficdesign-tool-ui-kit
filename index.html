@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trafficdesign UI Kit - Dashboard</title>
+  <title>trafficdesign UI Kit - Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Prevent FOUC -->
@@ -35,7 +35,7 @@
           <rect x="2" y="18" width="12" height="12" rx="2" opacity="0.6"/>
           <rect x="18" y="18" width="12" height="12" rx="2" opacity="0.3"/>
         </svg>
-        <span class="text-lg font-bold text-brand-dark">trafficdesign</span>
+        <span class="text-lg font-bold text-white">trafficdesign</span>
       </div>
       
       <!-- Navigation -->
@@ -182,8 +182,8 @@
           </div>
           
           <!-- Notifications -->
-          <div class="dropdown" x-data="{ open: false }">
-            <button @click="open = !open" class="btn-icon relative">
+          <div class="dropdown notifications-dropdown" x-data="{ open: false }">
+            <button @click="open = !open" class="btn-icon relative notifications-trigger" aria-label="Benachrichtigungen">
               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
               </svg>
@@ -205,12 +205,12 @@
           </div>
           
           <!-- User Menu -->
-          <div class="dropdown" x-data="{ open: false }">
-            <button @click="open = !open" class="flex items-center gap-2 p-1 rounded-lg hover:bg-surface-50">
+          <div class="dropdown user-menu" x-data="{ open: false }">
+            <button @click="open = !open" class="user-menu-trigger flex items-center gap-2 p-1.5" aria-label="Benutzermenü">
               <div class="avatar-sm">
                 <span>MK</span>
               </div>
-              <svg class="w-4 h-4 text-surface-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </button>
@@ -251,7 +251,7 @@
         <!-- Page Header -->
         <div class="mb-6">
           <h1 class="text-3xl font-bold text-brand-dark">Dashboard</h1>
-          <p class="text-surface-500 mt-1">Willkommen im Trafficdesign UI Kit. Erkunde die Komponenten in der Sidebar.</p>
+          <p class="text-surface-500 mt-1">Willkommen im trafficdesign UI Kit. Erkunde die Komponenten in der Sidebar.</p>
         </div>
         
         <!-- Stats Grid -->
@@ -468,14 +468,14 @@
                   <div class="w-8 h-8 rounded bg-brand-primary"></div>
                   <div>
                     <div class="text-sm font-medium">Primary</div>
-                    <div class="text-xs text-surface-500">#00B3C7</div>
+                    <div class="text-xs text-surface-500">#00AFCE</div>
                   </div>
                 </div>
                 <div class="flex items-center gap-3">
                   <div class="w-8 h-8 rounded bg-brand-dark"></div>
                   <div>
                     <div class="text-sm font-medium">Dark</div>
-                    <div class="text-xs text-surface-500">#333333</div>
+                    <div class="text-xs text-surface-500">#1d1d1d</div>
                   </div>
                 </div>
                 <div class="flex items-center gap-3">
@@ -494,7 +494,7 @@
       <!-- Footer -->
       <footer class="px-6 py-4 border-t border-surface-200 bg-white">
         <div class="flex items-center justify-between text-sm text-surface-500">
-          <div>© 2024 Trafficdesign UI Kit</div>
+          <div>© 2025 trafficdesign UI Kit</div>
           <div class="flex items-center gap-4">
             <a href="#" class="hover:text-brand-primary">Dokumentation</a>
             <a href="#" class="hover:text-brand-primary">GitHub</a>
