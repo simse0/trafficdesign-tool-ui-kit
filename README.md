@@ -43,9 +43,9 @@ Das **Trafficdesign Tool UI Kit** ist ein vollständiges Design System für mode
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start - Installation
 
-### 1. Mit Cursor IDE verwenden (empfohlen ⭐)
+### 1. Option: Direkt mit Cursor IDE verwenden (empfohlen ⭐)
 
 #### Schritt 1: Cursor Rules aktivieren
 
@@ -59,33 +59,12 @@ curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool
 
 #### Schritt 2: Design System Dokumentation bereitstellen
 
-**Option A: DESIGN-SYSTEM.md lokal kopieren (empfohlen):**
-
 ```bash
 # DESIGN-SYSTEM.md ins Projekt-Root kopieren
 curl -o DESIGN-SYSTEM.md https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
 ```
 
-Dann in `.cursorrules` hinzufügen:
-
-```plaintext
-# Trafficdesign Tool UI Kit
-**WICHTIG:** Lies DESIGN-SYSTEM.md für alle verfügbaren Komponenten, CSS-Klassen und Patterns!
-
-Dokumentation: siehe DESIGN-SYSTEM.md im Projekt-Root
-Repository: https://github.com/simse0/trafficdesign-tool-ui-kit
-```
-
-**Option B: Remote-Referenz (für schnellen Start):**
-
-```plaintext
-# Trafficdesign Tool UI Kit - Remote Referenz
-Dokumentation: https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
-CSS-Dateien: https://github.com/simse0/trafficdesign-tool-ui-kit/tree/main/src/styles
-Demo: https://simse0.github.io/trafficdesign-tool-ui-kit
-
-// ... restlicher Inhalt aus .cursorrules ...
-```
+**✅ Fertig!** Die `.cursorrules` Datei aus Schritt 1 referenziert automatisch die `DESIGN-SYSTEM.md`. Keine manuellen Anpassungen nötig.
 
 #### Schritt 3: AI-Befehle verwenden
 
@@ -147,8 +126,9 @@ cp /tmp/trafficdesign-tool-ui-kit/src/styles/globals.css ./resources/css/app.css
 # 3. Alpine.js Store hinzufügen
 cat /tmp/trafficdesign-tool-ui-kit/src/main.js >> ./resources/js/app.js
 
-# 4. Cursor Rules kopieren (optional)
+# 4. Cursor Rules + Dokumentation kopieren (empfohlen für AI-Support)
 cp /tmp/trafficdesign-tool-ui-kit/.cursorrules ./.cursorrules
+cp /tmp/trafficdesign-tool-ui-kit/DESIGN-SYSTEM.md ./DESIGN-SYSTEM.md
 
 # 5. Temp-Ordner löschen
 rm -rf /tmp/trafficdesign-tool-ui-kit
@@ -227,10 +207,11 @@ curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficde
 #### Bei manueller Installation:
 
 ```bash
-# Neue Version der 3 Dateien laden
+# Neue Version der Dateien laden
 curl -o tailwind.config.js https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/tailwind.config.js
 curl -o resources/css/app.css https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/src/styles/globals.css
 curl -o .cursorrules https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/.cursorrules
+curl -o DESIGN-SYSTEM.md https://raw.githubusercontent.com/simse0/trafficdesign-tool-ui-kit/main/DESIGN-SYSTEM.md
 
 # Build neu starten
 npm run dev
@@ -268,7 +249,7 @@ npm install
 npm run dev
 ```
 
-**Demo öffnen:** [http://localhost:5173](http://localhost:5173)
+**Demo öffnen:** [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -660,7 +641,7 @@ Contributions sind willkommen! Bitte:
 
 ⭐ **Star this repo** if you find it helpful!
 
-[Documentation](DESIGN-SYSTEM.md) • [Demo](http://localhost:5173) • [Issues](https://github.com/simse0/trafficdesign-tool-ui-kit/issues)
+[Documentation](DESIGN-SYSTEM.md) • [Demo](http://localhost:3000) • [Issues](https://github.com/simse0/trafficdesign-tool-ui-kit/issues)
 
 </div>
 

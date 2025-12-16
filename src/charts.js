@@ -112,3 +112,4 @@ window.ApexCharts = ApexCharts;
 window.createChart = createChart;
 window.trafficdesignChartTheme = trafficdesignChartTheme;
 
+
