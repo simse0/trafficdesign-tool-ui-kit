@@ -227,7 +227,7 @@
             </div>
             <div class="card-tool-body space-y-4">
               
-              <div x-data="{ color: '#00B3C7' }">
+              <div x-data="{ color: '#00AFCE' }">
                 <label class="label">Farbe auswählen</label>
                 <div class="flex gap-3">
                   <input 
@@ -246,8 +246,8 @@
               
               <div>
                 <label class="label">Vordefinierte Farben</label>
-                <div class="flex gap-2 flex-wrap" x-data="{ selected: '#00B3C7' }">
-                  <template x-for="color in ['#00B3C7', '#333333', '#E5F2F3', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6', '#8B5CF6']" :key="color">
+                <div class="flex gap-2 flex-wrap" x-data="{ selected: '#00AFCE' }">
+                  <template x-for="color in ['#00AFCE', '#333333', '#E5F2F3', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6', '#8B5CF6']" :key="color">
                     <button 
                       @click="selected = color"
                       class="w-8 h-8 rounded-md border-2 transition-transform hover:scale-110"

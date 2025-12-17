@@ -65,7 +65,7 @@ tailwind-example/
 
 | Name | Hex | CSS-Variable | Verwendung |
 |------|-----|--------------|------------|
-| Primary | `#00B3C7` | `brand-primary` | Aktionen, Focus, Highlights |
+| Primary | `#00AFCE` | `brand-primary` | Aktionen, Focus, Highlights |
 | Primary Hover | `#009AA8` | `brand-primary-hover` | Hover-States |
 | Primary Active | `#008494` | `brand-primary-active` | Active/Click-States |
 | Dark | `#333333` | `brand-dark` | Text, Borders |

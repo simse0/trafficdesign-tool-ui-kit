@@ -83,7 +83,7 @@ Jetzt kannst du in Cursor direkt mit dem Design System arbeiten. Cursor liest au
 
 **Was Cursor automatisch aus DESIGN-SYSTEM.md lernt:**
 - ✅ Alle 50+ CSS-Klassen (`.btn-primary`, `.card-tool`, `.input-field`, etc.)
-- ✅ Brand Colors (`brand-primary` #00B3C7, `brand-dark` #333333)
+- ✅ Brand Colors (`brand-primary` #00AFCE, `brand-dark` #333333)
 - ✅ Semantic Colors (`ui-success`, `ui-warning`, `ui-error`, `ui-info`)
 - ✅ Typografie-System (14px Basis, 24px H1)
 - ✅ Alpine.js Patterns (Modals, Dropdowns, Tabs)

@@ -18,7 +18,7 @@ export const trafficdesignChartTheme = {
       }
     }
   },
-  colors: ['#00B3C7', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6', '#8B5CF6', '#EC4899'],
+  colors: ['#00AFCE', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6', '#8B5CF6', '#EC4899'],
   theme: {
     mode: 'light',
   },
