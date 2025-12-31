@@ -43,6 +43,21 @@ Das **trafficdesign Tool UI Kit** ist ein vollständiges Design System für mode
 
 ---
 
+## 🔄 Alternative: Pure HTML/CSS Variante
+
+Falls du **kein Laravel** und **kein Alpine.js** benötigst, gibt es eine **Pure HTML/CSS Variante** mit dem gleichen Layout und Design:
+
+👉 **[trafficdesign-tool-ui-kit-pure](https://github.com/simse0/trafficdesign-tool-ui-kit-pure)**
+
+Diese Variante bietet:
+- ✅ Gleiches Design & Layout
+- ✅ Alle CSS-Komponenten
+- ✅ Keine JavaScript-Dependencies (außer optional für Charts)
+- ✅ Framework-unabhängig
+- ✅ Perfekt für statische Websites oder andere Frameworks
+
+---
+
 ## 🚀 Quick Start - Installation
 
 ### 1. Option: Direkt mit Cursor IDE verwenden (empfohlen ⭐)
